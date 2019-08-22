@@ -10,6 +10,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetLabelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Offer\OfferRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\CreateOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\DeleteOrderRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\UpdateOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Parcel\CreateParcelRequest;
@@ -89,10 +90,15 @@ class MetaShipAPIClient
 
     public function getOrders(GetOrdersRequest $getOrdersRequest): ResponseInterface
     {
+        $params = $this->serializer->toArray($getOrdersRequest);
         return $this->client->request($getOrdersRequest->getMethod(),
             $getOrdersRequest->getPath(),
             [
-                'headers' => $this->getHeaders($getOrdersRequest->getMethod(), $getOrdersRequest->getPath()),
+                'query' => $params,
+                'headers' => $this->getHeaders($getOrdersRequest->getMethod(),
+                    $getOrdersRequest->getPath(),
+                    '',
+                    http_build_query($params)),
             ]);
     }
 
@@ -172,8 +178,17 @@ class MetaShipAPIClient
             ]);
     }
 
+    public function getOrder(GetOrderRequest $getOrderRequest): ResponseInterface
+    {
+        $path = $getOrderRequest->getPath() . '/' . $getOrderRequest->id;
+        return $this->client->get($path,
+            [
+                'headers' => $this->getHeaders($getOrderRequest->getMethod(), $path)
+            ]);
+    }
+
     private function getHeaders(string $requestMethod, string $requestSlug, string $requestBody = '',
-        string $queryParams = '')
+        string $queryParams = ''): array
     {
         $signature = $this->generateSignatureFromRequest($requestMethod,
             $requestSlug,
@@ -186,7 +201,7 @@ class MetaShipAPIClient
     }
 
     private function generateSignatureFromRequest(string $requestMethod, string $requestSlug, string $requestBody = '',
-        string $queryParams = '')
+        string $queryParams = ''): string
     {
         $hashedPayload = hash('sha256', $requestBody);
         $dateTime = (new \DateTime())->format('Y-m-d\TH:i:s');

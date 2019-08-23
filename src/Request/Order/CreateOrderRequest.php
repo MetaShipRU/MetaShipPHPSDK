@@ -19,11 +19,42 @@ class CreateOrderRequest implements IRequest
     const METHOD = 'POST';
     const PATH = '/v1/orders';
 
+    /** @var string Вскрытие заказа */
+    const SERVICE_OPEN = 'open';
+    /** @var string Дополнительный звонок клиенту */
+    const SERVICE_CALL = 'call';
+    /** @var string Возврат документов по заказу */
+    const SERVICE_RETURN_DOCS = 'return_docs';
+    /** @var string Частичный выкуп */
+    const SERVICE_PARTIAL_BUY = 'partial_buy';
+    /** @var string Примерка */
+    const SERVICE_DRESS_FITTING = 'dress_fitting';
+    /** @var string Подъем груза */
+    const SERVICE_LIFTING = 'lifting';
+    /** @var string Обмен товара на другой */
+    const SERVICE_CHANGE = 'change';
+    /** @var string SMS информирование */
+    const SERVICE_SMS = 'sms';
+    /** @var string Возврату не подлежит */
+    const SERVICE_NO_RETURN = 'no_return';
+
     /**
      * @Serializer\Type("integer")
      * @var int
      */
     public $length;
+
+    /**
+     * @Serializer\Type("integer")
+     * @var int
+     */
+    public $shopId;
+
+    /**
+     * @Serializer\Type("integer")
+     * @var int
+     */
+    public $warehouseId;
 
     /**
      * @Serializer\Type("integer")
@@ -105,6 +136,13 @@ class CreateOrderRequest implements IRequest
      * @var float
      */
     public $tariffId;
+
+    /**
+     * @Serializer\Type("array<string>")
+     *
+     * @var array
+     */
+    public $services;
 
     /**
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\Request\Recipient\CreateRecipientRequest")

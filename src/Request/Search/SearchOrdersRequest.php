@@ -31,6 +31,11 @@ class SearchOrdersRequest
     public $trackNumber = [];
 
     /**
+     * @var string
+     */
+    public $created;
+
+    /**
      * @var int
      */
     public $start;

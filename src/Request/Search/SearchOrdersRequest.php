@@ -18,12 +18,14 @@ class SearchOrdersRequest
 
     /**
      * @Serializer\SerializedName("shopNumber")
+     *
      * @var array
      */
     public $shopNumber = [];
 
     /**
      * @Serializer\SerializedName("trackNumber")
+     *
      * @var array
      */
     public $trackNumber = [];

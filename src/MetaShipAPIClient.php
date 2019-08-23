@@ -15,6 +15,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\UpdateOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Parcel\CreateParcelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use Psr\Http\Message\ResponseInterface;
 
@@ -184,6 +185,20 @@ class MetaShipAPIClient
         return $this->client->get($path,
             [
                 'headers' => $this->getHeaders($getOrderRequest->getMethod(), $path)
+            ]);
+    }
+
+    public function searchOrders(SearchOrdersRequest $searchOrdersRequest): ResponseInterface
+    {
+        $params = $this->serializer->toArray($searchOrdersRequest);
+        return $this->client->request($searchOrdersRequest->getMethod(),
+            $searchOrdersRequest->getPath(),
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders($searchOrdersRequest->getMethod(),
+                    $searchOrdersRequest->getPath(),
+                    '',
+                    http_build_query($params)),
             ]);
     }
 

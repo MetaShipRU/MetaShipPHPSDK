@@ -45,6 +45,7 @@ class CreateOrderRequest implements IRequest
     public $length;
 
     /**
+     * @Serializer\SerializedName("shopId")
      * @Serializer\Type("integer")
      * @var int
      */

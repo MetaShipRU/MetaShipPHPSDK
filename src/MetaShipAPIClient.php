@@ -7,6 +7,7 @@ use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetAcceptanceRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetLabelRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Intake\CreateIntakeRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Offer\OfferRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\CreateOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\DeleteOrderRequest;
@@ -199,6 +200,18 @@ class MetaShipAPIClient
                     $searchOrdersRequest->getPath(),
                     '',
                     http_build_query($params)),
+            ]);
+    }
+
+    public function createIntake(CreateIntakeRequest $createIntakeRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($createIntakeRequest, 'json');
+        return $this->client->post($createIntakeRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($createIntakeRequest->getMethod(),
+                    $createIntakeRequest->getPath(),
+                    $body)
             ]);
     }
 

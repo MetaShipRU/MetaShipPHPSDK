@@ -18,6 +18,25 @@ class Warehouse
     public $name;
 
     /**
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $phone;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $created;
+
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("contactPerson")
+     * @var string
+     */
+    public $contactPerson;
+
+    /**
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\Address\Address")
      * @var Address
      */

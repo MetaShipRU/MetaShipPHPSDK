@@ -18,6 +18,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Parcel\CreateParcelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -213,6 +214,24 @@ class MetaShipAPIClient
                     $createIntakeRequest->getPath(),
                     $body)
             ]);
+    }
+
+    public function getWarehouses(GetWarehousesRequest $getWarehousesRequest): ResponseInterface
+    {
+        $params = $this->serializer->toArray($getWarehousesRequest);
+        return $this->client->request(
+            $getWarehousesRequest->getMethod(),
+            $getWarehousesRequest->getPath(),
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders(
+                    $getWarehousesRequest->getMethod(),
+                    $getWarehousesRequest->getPath(),
+                    '',
+                    http_build_query($params)
+                ),
+            ]
+        );
     }
 
     private function getHeaders(string $requestMethod, string $requestSlug, string $requestBody = '',

@@ -12,6 +12,51 @@ use MetaShipRU\MetaShipPHPSDK\DTO\Recipient\Recipient;
  */
 class Order
 {
+    const DELIVERY_TYPE_COURIER = 'courier';
+    const DELIVERY_TYPE_PICKUP = 'pickup';
+    const DELIVERY_TYPE_POST = 'post';
+
+    const STATUS_DRAFT = 'draft';
+    const STATUS_CREATED = 'created';
+    const STATUS_PENDING = 'pending';
+    const STATUS_WAIT_DELIVERY = 'wait_delivery';
+    const STATUS_DELIVERY_PREPARED = 'delivery_prepared';
+    const STATUS_INTRANSIT = 'intransit';
+    const STATUS_ARRIVED = 'arrived';
+    const STATUS_STORED = 'stored';
+    const STATUS_TRANSPORTATION_RECIPIENT = 'transportation_recipient';
+    const STATUS_DELIVERED = 'delivered';
+    const STATUS_EXPECTED_FULL_RETURN = 'expected_full_return';
+    const STATUS_EXPECTED_PARTIAL_RETURN = 'expected_partial_return';
+    const STATUS_RETURN_ARRIVED_WAREHOUSE = 'return_arrived_warehouse';
+    const STATUS_RETURN_COMPLETED = 'return_completed';
+    const STATUS_DELIVERY_CANCELLED = 'delivery_cancelled';
+
+    const STATUS_UNKNOWN = 'unknown';
+    const STATUS_ERROR = 'error';
+    const STATUS_DELETED = 'deleted';
+
+    const STATUSES_TITLE = [
+        self::STATUS_DRAFT => 'Заказ черновик',
+        self::STATUS_CREATED => 'Заказ создан c полной информацией',
+        self::STATUS_PENDING => 'Заказ создан в информационной системе службы',
+        self::STATUS_WAIT_DELIVERY => 'Заказ подготовлен к отправке',
+        self::STATUS_DELIVERY_PREPARED => 'Заказ на складе службы',
+        self::STATUS_INTRANSIT => 'Заказ доставляется',
+        self::STATUS_ARRIVED => 'Заказ в городе получателя',
+        self::STATUS_STORED => 'Заказ поступил в пункт выдачи',
+        self::STATUS_TRANSPORTATION_RECIPIENT => 'Заказ доставляется получателю',
+        self::STATUS_EXPECTED_FULL_RETURN => 'Заказ готовится к возврату',
+        self::STATUS_EXPECTED_PARTIAL_RETURN => 'Заказ готовится к частичному возврату',
+        self::STATUS_RETURN_ARRIVED_WAREHOUSE => 'Заказ возвращен на склад службы',
+        self::STATUS_RETURN_COMPLETED => 'Заказ возвращен в интернет-магазин',
+        self::STATUS_ERROR => 'Заказ создан с ошибкой',
+        self::STATUS_DELIVERED => 'Заказ доставлен',
+        self::STATUS_DELETED => 'Заказ удален',
+        self::STATUS_UNKNOWN => 'Неизвестный статус',
+        self::STATUS_DELIVERY_CANCELLED => 'Отмена'
+    ];
+
     /**
      * @Serializer\Type("integer")
      * @var int

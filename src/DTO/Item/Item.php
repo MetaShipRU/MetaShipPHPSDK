@@ -10,6 +10,11 @@ use JMS\Serializer\Annotation as Serializer;
  */
 class Item
 {
+    private const VAT_CODE_20 = '20';
+    private const VAT_CODE_10 = '10';
+    private const VAT_CODE_0 = '0';
+    private const VAT_CODE_NO_VAT = 'no_vat';
+
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("vendorCode")

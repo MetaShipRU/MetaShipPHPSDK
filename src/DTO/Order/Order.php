@@ -5,6 +5,7 @@ namespace MetaShipRU\MetaShipPHPSDK\DTO\Order;
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Item\Item;
 use MetaShipRU\MetaShipPHPSDK\DTO\Recipient\Recipient;
+use MetaShipRU\MetaShipPHPSDK\DTO\Status\OrderStatus;
 
 /**
  * Class Order
@@ -121,4 +122,11 @@ class Order
      * @var Item[]
      */
     public $items;
+
+    /**
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Status\OrderStatus>")
+     * @Serializer\SerializedName("statusHistory")
+     * @var OrderStatus[]
+     */
+    public $statusHistory;
 }

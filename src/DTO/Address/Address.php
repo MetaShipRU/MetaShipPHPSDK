@@ -23,4 +23,10 @@ class Address
      * @var string
      */
     public $house;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $region;
 }

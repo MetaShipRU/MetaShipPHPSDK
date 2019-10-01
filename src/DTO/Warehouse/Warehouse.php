@@ -12,6 +12,12 @@ use MetaShipRU\MetaShipPHPSDK\DTO\Address\Address;
 class Warehouse
 {
     /**
+     * @Serializer\Type("integer")
+     * @var integer
+     */
+    public $id;
+
+    /**
      * @Serializer\Type("string")
      * @var string
      */

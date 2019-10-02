@@ -23,4 +23,18 @@ class CreateParcelRequest implements IRequest
      * @var array
      */
     public $orderNumbers;
+
+    /**
+     * @Serializer\Type("array")
+     * @Serializer\SerializedName("shopNumbers")
+     * @var array
+     */
+    public $shopNumbers;
+
+    /**
+     * @Serializer\SerializedName("shipmentDate")
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $shipmentDate;
 }

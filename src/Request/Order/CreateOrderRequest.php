@@ -53,9 +53,17 @@ class CreateOrderRequest implements IRequest
 
     /**
      * @Serializer\Type("integer")
+     * @Serializer\SerializedName("warehouseId")
      * @var int
      */
     public $warehouseId;
+
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("fulfillmentServiceNumber")
+     * @var string
+     */
+    public $fulfillmentServiceNumber;
 
     /**
      * @Serializer\Type("integer")

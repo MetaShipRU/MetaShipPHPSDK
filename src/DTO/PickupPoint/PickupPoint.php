@@ -167,7 +167,4 @@ class PickupPoint
      * @var int
      */
     public $heightMax;
-
-
-
 }

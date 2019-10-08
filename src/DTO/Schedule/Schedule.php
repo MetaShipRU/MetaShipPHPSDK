@@ -12,6 +12,13 @@ use JMS\Serializer\Annotation as Serializer;
 class Schedule
 {
     /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("day")
+     * @var int
+     */
+    public $day;
+
+    /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("timeFrom")
      * @var int

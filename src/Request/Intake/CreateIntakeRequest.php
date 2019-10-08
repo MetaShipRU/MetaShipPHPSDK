@@ -68,6 +68,7 @@ class CreateIntakeRequest implements IRequest
     public $comment;
 
     /**
+     * @Serializer\SerializedName("shopServiceNumber")
      * @Serializer\Type("string")
      * @var string
      */

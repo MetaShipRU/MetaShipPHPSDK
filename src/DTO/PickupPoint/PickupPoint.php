@@ -4,6 +4,7 @@ namespace MetaShipRU\MetaShipPHPSDK\DTO\PickupPoint;
 
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Photo\Photo;
+use MetaShipRU\MetaShipPHPSDK\DTO\Schedule\Schedule;
 
 /**
  * Class PickupPoint
@@ -131,5 +132,42 @@ class PickupPoint
      * @var Photo[]
      */
     public $photos;
+
+    /**
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Schedule\Schedule>")
+     * @Serializer\SerializedName("workTime")
+     * @var Schedule[]
+     */
+    public $workTime;
+
+    /**
+     * @Serializer\Type("float")
+     * @Serializer\SerializedName("weightMax")
+     * @var float
+     */
+    public $weightMax;
+
+    /**
+     * @Serializer\Type("integer")
+     * @Serializer\SerializedName("widthMax")
+     * @var int
+     */
+    public $widthMax;
+
+    /**
+     * @Serializer\Type("integer")
+     * @Serializer\SerializedName("lengthMax")
+     * @var int
+     */
+    public $lengthMax;
+
+    /**
+     * @Serializer\Type("integer")
+     * @Serializer\SerializedName("heightMax")
+     * @var int
+     */
+    public $heightMax;
+
+
 
 }

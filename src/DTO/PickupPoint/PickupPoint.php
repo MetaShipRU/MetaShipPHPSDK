@@ -65,6 +65,13 @@ class PickupPoint
     public $isAcquiringAvailable;
 
     /**
+     * @Serializer\Type("boolean")
+     * @Serializer\SerializedName("isCashAllowed")
+     * @var bool
+     */
+    public $isCashAllowed;
+
+    /**
      * @Serializer\Type("string")
      * @var string
      */

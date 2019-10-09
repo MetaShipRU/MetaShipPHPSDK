@@ -5,6 +5,10 @@ namespace MetaShipRU\MetaShipPHPSDK\DTO\Recipient;
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Address\Address;
 
+/**
+ * Class Recipient
+ * @package MetaShipRU\MetaShipPHPSDK\DTO\Recipient
+ */
 class Recipient
 {
     /**

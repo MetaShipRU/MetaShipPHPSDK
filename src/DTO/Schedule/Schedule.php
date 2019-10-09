@@ -19,14 +19,14 @@ class Schedule
     public $day;
 
     /**
-     * @Serializer\Type("integer")
+     * @Serializer\Type("string")
      * @Serializer\SerializedName("timeFrom")
      * @var int
      */
     public $timeFrom;
 
     /**
-     * @Serializer\Type("integer")
+     * @Serializer\Type("string")
      * @Serializer\SerializedName("timeTo")
      * @var int
      */

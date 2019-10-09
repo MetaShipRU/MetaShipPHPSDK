@@ -85,4 +85,11 @@ class Intake
      * @var Schedule
      */
     public $schedule;
+
+    /**
+     * @Serializer\SerializedName("shopServiceNumber")
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $shopServiceNumber;
 }

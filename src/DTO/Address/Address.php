@@ -29,4 +29,10 @@ class Address
      * @var string
      */
     public $region;
+
+    /**
+     * @Serializer\Type("integer")
+     * @var int
+     */
+    public $zip;
 }

@@ -4,7 +4,6 @@ namespace MetaShipRU\MetaShipPHPSDK\DTO\Schedule;
 
 use JMS\Serializer\Annotation as Serializer;
 
-
 /**
  * Class Schedule
  * @package MetaShipRU\MetaShipPHPSDK\DTO\Schedule

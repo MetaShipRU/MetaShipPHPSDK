@@ -154,6 +154,13 @@ class CreateOrderRequest implements IRequest
     public $tariffId;
 
     /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("shipmentDate")
+     * @var float
+     */
+    public $shipmentDate;
+
+    /**
      * @Serializer\Type("array<string>")
      *
      * @var array

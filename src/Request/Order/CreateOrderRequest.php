@@ -112,6 +112,13 @@ class CreateOrderRequest implements IRequest
     public $paymentSum;
 
     /**
+     * @Serializer\Type("integer")
+     * @Serializer\SerializedName("paymentMethod")
+     * @var int
+     */
+    public $paymentMethod;
+
+    /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("shopNumber")
      * @var string

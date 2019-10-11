@@ -22,6 +22,7 @@ class Order
     const STATUS_PENDING = 'pending';
     const STATUS_WAIT_DELIVERY = 'wait_delivery';
     const STATUS_DELIVERY_PREPARED = 'delivery_prepared';
+    const STATUS_DELIVERY_PREPARED_TO_SEND = 'delivery_prepared_to_send';
     const STATUS_INTRANSIT = 'intransit';
     const STATUS_ARRIVED = 'arrived';
     const STATUS_STORED = 'stored';
@@ -43,6 +44,7 @@ class Order
         self::STATUS_PENDING => 'Заказ создан в информационной системе службы',
         self::STATUS_WAIT_DELIVERY => 'Заказ подготовлен к отправке',
         self::STATUS_DELIVERY_PREPARED => 'Заказ на складе службы',
+        self::STATUS_DELIVERY_PREPARED_TO_SEND => 'Заказ на складе службы, готов к отправке',
         self::STATUS_INTRANSIT => 'Заказ доставляется',
         self::STATUS_ARRIVED => 'Заказ в городе получателя',
         self::STATUS_STORED => 'Заказ поступил в пункт выдачи',

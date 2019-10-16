@@ -25,11 +25,14 @@ class GetDeliveriesRequest
     public $deliveryName;
 
     /**
+     * @Serializer\Type("integer")
      * @var string
      */
     public $zip;
 
     /**
+     * @Serializer\Type("integer")
+     * @Serializer\SerializedName("pickupPointId")
      * @var string
      */
     public $pickupPointId;

@@ -3,6 +3,7 @@
 namespace MetaShipRU\MetaShipPHPSDK\DTO\Delivery;
 
 use JMS\Serializer\Annotation as Serializer;
+use MetaShipRU\MetaShipPHPSDK\DTO\Schedule\CourierSchedule;
 
 /**
  * Class Delivery
@@ -10,6 +11,12 @@ use JMS\Serializer\Annotation as Serializer;
  */
 class Delivery
 {
+    /**
+     * @Serializer\Type("integer")
+     * @var int
+     */
+    public $id;
+
     /**
      * @Serializer\Type("string")
      * @var string
@@ -23,4 +30,11 @@ class Delivery
      * @var string
      */
     public $uniqueName;
+
+    /**
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Schedule\CourierSchedule>")
+     * @Serializer\SerializedName("courierSchedules")
+     * @var CourierSchedule[]
+     */
+    public $courierSchedules;
 }

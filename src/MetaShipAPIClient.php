@@ -5,6 +5,7 @@ namespace MetaShipRU\MetaShipPHPSDK;
 use GuzzleHttp\Client;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
+use MetaShipRU\MetaShipPHPSDK\Request\Delivery\GetDeliveriesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetAcceptanceRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetLabelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Intake\CreateIntakeRequest;
@@ -242,6 +243,24 @@ class MetaShipAPIClient
                 'headers' => $this->getHeaders(
                     $getWarehousesRequest->getMethod(),
                     $getWarehousesRequest->getPath(),
+                    '',
+                    http_build_query($params)
+                ),
+            ]
+        );
+    }
+
+    public function getDeliveries(GetDeliveriesRequest $getDeliveriesRequest): ResponseInterface
+    {
+        $path = $getDeliveriesRequest->getPath() . '/' . $getDeliveriesRequest->deliveryName;
+        $params = $this->serializer->toArray($getDeliveriesRequest);
+
+        return $this->client->request(
+            $getDeliveriesRequest->getMethod(), $path,
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders(
+                    $getDeliveriesRequest->getMethod(), $path,
                     '',
                     http_build_query($params)
                 ),

@@ -149,14 +149,14 @@ class CreateOrderRequest implements IRequest
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("tariffId")
-     * @var float
+     * @var string
      */
     public $tariffId;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("shipmentDate")
-     * @var float
+     * @var string
      */
     public $shipmentDate;
 

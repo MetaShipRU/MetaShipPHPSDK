@@ -37,6 +37,7 @@ class Order
     const STATUS_UNKNOWN = 'unknown';
     const STATUS_ERROR = 'error';
     const STATUS_DELETED = 'deleted';
+    const STATUS_CANCELLED = 'cancelled';
 
     const STATUSES_TITLE = [
         self::STATUS_DRAFT => 'Заказ черновик',
@@ -57,7 +58,8 @@ class Order
         self::STATUS_DELIVERED => 'Заказ доставлен',
         self::STATUS_DELETED => 'Заказ удален',
         self::STATUS_UNKNOWN => 'Неизвестный статус',
-        self::STATUS_DELIVERY_CANCELLED => 'Отмена'
+        self::STATUS_DELIVERY_CANCELLED => 'Заказ отменен службой',
+        self::STATUS_CANCELLED => 'Заказ отменен'
     ];
 
     /**

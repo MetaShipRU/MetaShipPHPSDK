@@ -139,6 +139,25 @@ class CreateOrderRequest implements IRequest
     public $deliveryType;
 
     /**
+     * @Serializer\Type("string")
+     *
+     * @var string
+     */
+    public $desiredDeliveryDate;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $timeFrom;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $timeTo;
+
+    /**
      * @Serializer\Type("float")
      * @Serializer\SerializedName("deliveryCost")
      * @var float

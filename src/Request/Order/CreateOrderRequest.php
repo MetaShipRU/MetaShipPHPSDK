@@ -92,6 +92,12 @@ class CreateOrderRequest implements IRequest
 
     /**
      * @Serializer\Type("string")
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @Serializer\Type("string")
      * @Serializer\SerializedName("shopServiceCode")
      * @var string
      */

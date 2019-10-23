@@ -97,6 +97,27 @@ class Order
     public $deliveryCost;
 
     /**
+     * @Serializer\SerializedName("totalCost")
+     * @Serializer\Type("float")
+     * @var float
+     */
+    public $totalCost;
+
+    /**
+     * @Serializer\SerializedName("paymentSum")
+     * @Serializer\Type("float")
+     * @var float
+     */
+    public $paymentSum;
+
+    /**
+     * @Serializer\SerializedName("assessedValue")
+     * @Serializer\Type("float")
+     * @var float
+     */
+    public $assessedValue;
+
+    /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("statusName")
      * @var string
@@ -133,6 +154,13 @@ class Order
      * @var string
      */
     public $created;
+
+    /**
+     * @Serializer\SerializedName("externalCreatedAt")
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $externalCreatedAt;
 
     /**
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\Recipient\Recipient")

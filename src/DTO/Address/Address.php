@@ -35,4 +35,11 @@ class Address
      * @var int
      */
     public $zip;
+
+    /**
+     * @Serializer\SerializedName("fullAddress")
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $fullAddress;
 }

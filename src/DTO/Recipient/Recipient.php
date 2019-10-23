@@ -47,4 +47,11 @@ class Recipient
      * @var string
      */
     public $pickupPointServiceNumber;
+
+    /**
+     * @Serializer\SerializedName("additionalPhones")
+     * @Serializer\Type("array<string>")
+     * @var string[]
+     */
+    public $additionalPhones;
 }

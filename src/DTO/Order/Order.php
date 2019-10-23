@@ -111,6 +111,25 @@ class Order
 
     /**
      * @Serializer\Type("string")
+     *
+     * @var string
+     */
+    public $desiredDeliveryDate;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $timeFrom;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $timeTo;
+
+    /**
+     * @Serializer\Type("string")
      * @var string
      */
     public $created;

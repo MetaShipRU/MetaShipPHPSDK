@@ -111,18 +111,20 @@ class Order
 
     /**
      * @Serializer\Type("string")
-     *
+     * @Serializer\SerializedName("desiredDeliveryDate")
      * @var string
      */
     public $desiredDeliveryDate;
 
     /**
+     * @Serializer\SerializedName("timeFrom")
      * @Serializer\Type("string")
      * @var string
      */
     public $timeFrom;
 
     /**
+     * @Serializer\SerializedName("timeTo")
      * @Serializer\Type("string")
      * @var string
      */

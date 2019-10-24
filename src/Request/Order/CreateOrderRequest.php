@@ -140,19 +140,21 @@ class CreateOrderRequest implements IRequest
 
     /**
      * @Serializer\Type("string")
-     *
+     * @Serializer\SerializedName("desiredDeliveryDate")
      * @var string
      */
     public $desiredDeliveryDate;
 
     /**
      * @Serializer\Type("string")
+     * @Serializer\SerializedName("timeFrom")
      * @var string
      */
     public $timeFrom;
 
     /**
      * @Serializer\Type("string")
+     * @Serializer\SerializedName("timeTo")
      * @var string
      */
     public $timeTo;

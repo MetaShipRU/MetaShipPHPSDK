@@ -17,5 +17,4 @@ class OfferResponseFormatter
         $serializer = SerializerBuilder::create()->build();
         return $serializer->deserialize($orderResponse->getBody()->getContents(), OfferResponse::class, 'json');
     }
-
 }

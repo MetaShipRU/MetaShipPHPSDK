@@ -207,9 +207,9 @@ class CreateOrderRequest implements IRequest
     public $items;
 
     /**
-     * @Serializer\SerializedName("createdAt")
+     * @Serializer\SerializedName("created")
      * @Serializer\Type("string")
      * @var string
      */
-    public $createdAt;
+    public $created;
 }

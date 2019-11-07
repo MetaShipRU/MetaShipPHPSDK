@@ -21,6 +21,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateBatchWarehousesRequest;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -248,6 +249,18 @@ class MetaShipAPIClient
                 ),
             ]
         );
+    }
+
+    public function updateBatchWarehouses(UpdateBatchWarehousesRequest $updateBatchWarehousesRequest)
+    {
+        $body = $this->serializer->serialize($updateBatchWarehousesRequest, 'json');
+        return $this->client->post($updateBatchWarehousesRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($updateBatchWarehousesRequest->getMethod(),
+                    $updateBatchWarehousesRequest->getPath(),
+                    $body)
+            ]);
     }
 
     public function getDeliveries(GetDeliveriesRequest $getDeliveriesRequest): ResponseInterface

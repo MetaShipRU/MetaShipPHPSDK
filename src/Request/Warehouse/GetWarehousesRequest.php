@@ -11,6 +11,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
 class GetWarehousesRequest implements IRequest
 {
     use RequestCore;
+
     const PATH = '/v1/warehouses';
     const METHOD = 'GET';
 }

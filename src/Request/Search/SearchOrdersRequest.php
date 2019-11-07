@@ -2,8 +2,8 @@
 
 namespace MetaShipRU\MetaShipPHPSDK\Request\Search;
 
-use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
 use JMS\Serializer\Annotation as Serializer;
+use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
 
 /**
  * Class SearchOrdersRequest
@@ -34,6 +34,19 @@ class SearchOrdersRequest
      * @var string
      */
     public $created;
+
+    /**
+     * @Serializer\SerializedName("shopServiceCode")
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $shopServiceCode;
+
+    /**
+     * @Serializer\SerializedName("arrivedDate")
+     * @var string
+     */
+    public $arrivedDate;
 
     /**
      * @var int

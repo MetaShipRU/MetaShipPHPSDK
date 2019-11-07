@@ -158,11 +158,11 @@ class Order
     public $created;
 
     /**
-     * @Serializer\SerializedName("externalCreatedAt")
+     * @Serializer\SerializedName("externalCreated")
      * @Serializer\Type("string")
      * @var string
      */
-    public $externalCreatedAt;
+    public $externalCreated;
 
     /**
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\Recipient\Recipient")

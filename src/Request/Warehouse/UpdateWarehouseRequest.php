@@ -52,4 +52,5 @@ class UpdateWarehouseRequest
      * @var Schedule[]
      */
     public $schedules;
+
 }

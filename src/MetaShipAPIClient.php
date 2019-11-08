@@ -251,7 +251,7 @@ class MetaShipAPIClient
     public function updateBatchWarehouses(UpdateBatchWarehousesRequest $updateBatchWarehousesRequest)
     {
         $body = $this->serializer->serialize($updateBatchWarehousesRequest, 'json');
-        return $this->client->post($updateBatchWarehousesRequest->getPath(),
+        return $this->client->put($updateBatchWarehousesRequest->getPath(),
             [
                 'body' => $body,
                 'headers' => $this->getHeaders($updateBatchWarehousesRequest->getMethod(),

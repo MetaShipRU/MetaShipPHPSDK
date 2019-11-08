@@ -17,6 +17,7 @@ class UpdateBatchWarehousesRequest
     const METHOD = 'PUT';
 
     /**
+     * @Serializer\Inline()
      * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateWarehouseRequest>")
      * @var UpdateWarehouseRequest[]
      */

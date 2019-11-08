@@ -4,6 +4,7 @@ namespace MetaShipRU\MetaShipPHPSDK\DTO\Warehouse;
 
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Address\Address;
+use MetaShipRU\MetaShipPHPSDK\DTO\Schedule\Schedule;
 
 /**
  * Class Warehouse
@@ -47,4 +48,11 @@ class Warehouse
      * @var Address
      */
     public $address;
+
+    /**
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Schedule\Schedule>")
+     * @Serializer\SerializedName("schedules")
+     * @var Schedule[]
+     */
+    public $schedules;
 }

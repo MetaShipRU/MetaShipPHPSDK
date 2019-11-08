@@ -26,6 +26,13 @@ class Warehouse
 
     /**
      * @Serializer\Type("string")
+     * @Serializer\SerializedName("shopServiceNumber")
+     * @var string
+     */
+    public $shopServiceNumber;
+
+    /**
+     * @Serializer\Type("string")
      * @var string
      */
     public $phone;

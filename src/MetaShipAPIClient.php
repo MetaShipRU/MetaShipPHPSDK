@@ -67,7 +67,8 @@ class MetaShipAPIClient
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
         $this->options = $options;
-        $this->serializer = SerializerBuilder::create()->build();
+        $this->serializer = SerializerBuilder::create()
+            ->build();
     }
 
     public function getOffers(OfferRequest $offerRequest): ResponseInterface
@@ -236,19 +237,15 @@ class MetaShipAPIClient
     public function getWarehouses(GetWarehousesRequest $getWarehousesRequest): ResponseInterface
     {
         $params = $this->serializer->toArray($getWarehousesRequest);
-        return $this->client->request(
-            $getWarehousesRequest->getMethod(),
+        return $this->client->request($getWarehousesRequest->getMethod(),
             $getWarehousesRequest->getPath(),
             [
                 'query' => $params,
-                'headers' => $this->getHeaders(
-                    $getWarehousesRequest->getMethod(),
+                'headers' => $this->getHeaders($getWarehousesRequest->getMethod(),
                     $getWarehousesRequest->getPath(),
                     '',
-                    http_build_query($params)
-                ),
-            ]
-        );
+                    http_build_query($params)),
+            ]);
     }
 
     public function updateBatchWarehouses(UpdateBatchWarehousesRequest $updateBatchWarehousesRequest)
@@ -268,17 +265,15 @@ class MetaShipAPIClient
         $path = $getDeliveriesRequest->getPath() . '/' . $getDeliveriesRequest->deliveryName;
         $params = $this->serializer->toArray($getDeliveriesRequest);
 
-        return $this->client->request(
-            $getDeliveriesRequest->getMethod(), $path,
+        return $this->client->request($getDeliveriesRequest->getMethod(),
+            $path,
             [
                 'query' => $params,
-                'headers' => $this->getHeaders(
-                    $getDeliveriesRequest->getMethod(), $path,
+                'headers' => $this->getHeaders($getDeliveriesRequest->getMethod(),
+                    $path,
                     '',
-                    http_build_query($params)
-                ),
-            ]
-        );
+                    http_build_query($params)),
+            ]);
     }
 
     private function getHeaders(string $requestMethod, string $requestSlug, string $requestBody = '',

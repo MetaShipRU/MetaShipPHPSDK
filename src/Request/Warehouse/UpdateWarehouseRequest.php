@@ -41,8 +41,8 @@ class UpdateWarehouseRequest
 
     /**
      * @Serializer\SerializedName("phone")
-     * @Serializer\Type("array<string>")
-     * @var array
+     * @Serializer\Type("string")
+     * @var string
      */
     public $phone;
 

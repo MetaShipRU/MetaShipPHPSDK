@@ -276,6 +276,20 @@ class MetaShipAPIClient
             ]);
     }
 
+    public function searchOrdersStatusHistory(SearchOrderStatusHistoryRequest $searchOrdersStatusHistoryRequest): ResponseInterface
+    {
+        $params = $this->serializer->toArray($searchOrdersStatusHistoryRequest);
+        return $this->client->request($searchOrdersStatusHistoryRequest->getMethod(),
+            $searchOrdersStatusHistoryRequest->getPath(),
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders($searchOrdersStatusHistoryRequest->getMethod(),
+                    $searchOrdersStatusHistoryRequest->getPath(),
+                    '',
+                    http_build_query($params)),
+            ]);
+    }
+
     private function getHeaders(string $requestMethod, string $requestSlug, string $requestBody = '',
         string $queryParams = ''): array
     {

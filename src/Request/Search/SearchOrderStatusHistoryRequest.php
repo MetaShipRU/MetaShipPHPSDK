@@ -18,6 +18,13 @@ class SearchOrderStatusHistoryRequest
     const PATH = '/v1/search/order/status/history';
 
     /**
+     * @Serializer\SerializedName("id")
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @Serializer\SerializedName("shopNumber")
      *
      * @var string

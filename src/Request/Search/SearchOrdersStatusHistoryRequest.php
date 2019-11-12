@@ -3,6 +3,7 @@
 namespace MetaShipRU\MetaShipPHPSDK\Request\Search;
 
 use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Class SearchOrdersStatusHistoryRequest

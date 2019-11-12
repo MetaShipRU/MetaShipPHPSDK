@@ -18,6 +18,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Order\UpdateOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Parcel\CreateParcelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
@@ -276,7 +277,7 @@ class MetaShipAPIClient
             ]);
     }
 
-    public function searchOrdersStatusHistory(SearchOrderStatusHistoryRequest $searchOrdersStatusHistoryRequest): ResponseInterface
+    public function searchOrdersStatusHistory(SearchOrdersStatusHistoryRequest $searchOrdersStatusHistoryRequest): ResponseInterface
     {
         $params = $this->serializer->toArray($searchOrdersStatusHistoryRequest);
         return $this->client->request($searchOrdersStatusHistoryRequest->getMethod(),

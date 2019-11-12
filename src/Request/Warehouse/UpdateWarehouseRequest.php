@@ -53,4 +53,11 @@ class UpdateWarehouseRequest
      */
     public $schedules;
 
+    /**
+     * @Serializer\SerializedName("deliveryName")
+     * @Serializer\Type("string")
+     * @var string
+     */
+    public $deliveryName;
+
 }

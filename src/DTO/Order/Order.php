@@ -17,6 +17,10 @@ class Order
     const DELIVERY_TYPE_PICKUP = 'pickup';
     const DELIVERY_TYPE_POST = 'post';
 
+    const PAYMENT_METHOD_CASH = 0;
+    const PAYMENT_METHOD_CARD = 1;
+    const PAYMENT_METHOD_PREPAID = 2;
+
     const STATUS_DRAFT = 'draft';
     const STATUS_CREATED = 'created';
     const STATUS_PENDING = 'pending';

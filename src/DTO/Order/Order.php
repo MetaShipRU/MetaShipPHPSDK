@@ -186,4 +186,28 @@ class Order
      * @var OrderStatus[]
      */
     public $statusHistory;
+
+    /**
+     * @var float
+     * @Serializer\Type("float")
+     */
+    public $weight;
+
+    /**
+     * @var int
+     * @Serializer\Type("integer")
+     */
+    public $width;
+
+    /**
+     * @var int
+     * @Serializer\Type("integer")
+     */
+    public $length;
+
+    /**
+     * @var int
+     * @Serializer\Type("integer")
+     */
+    public $height;
 }

@@ -12,9 +12,6 @@ use JMS\Serializer\Annotation as Serializer;
  */
 final class Transaction
 {
-    private const DATA_TYPE__DELIVERY = 'DELIVERY';
-    private const DATA_TYPE__UNKNOWN = 'UNKNOWN';
-
     /**
      * @Serializer\Type("string")
      *
@@ -23,19 +20,20 @@ final class Transaction
     public $id;
 
     /**
+     * @Serializer\SerializedName("externalId")
+     * @Serializer\Type("string")
+     *
+     * @var string
+     */
+    public $externalId;
+
+    /**
      * @Serializer\SerializedName("dateTime")
      * @Serializer\Type("string")
      *
      * @var string
      */
     public $dateTime;
-
-    /**
-     * @Serializer\Type("string")
-     *
-     * @var string
-     */
-    public $type;
 
     /**
      * @Serializer\Type("string")

@@ -6,6 +6,7 @@ use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Item\Item;
 use MetaShipRU\MetaShipPHPSDK\DTO\Recipient\Recipient;
 use MetaShipRU\MetaShipPHPSDK\DTO\Status\OrderStatus;
+use MetaShipRU\MetaShipPHPSDK\DTO\Transaction\Transaction;
 
 /**
  * Class Order
@@ -210,4 +211,10 @@ class Order
      * @Serializer\Type("integer")
      */
     public $height;
+
+    /**
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Transaction\Transaction>")
+     * @var Transaction[]
+     */
+    public $transactions;
 }

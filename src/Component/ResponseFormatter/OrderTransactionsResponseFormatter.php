@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace MetaShipRU\MetaShipPHPSDK\Component\ResponseFormatter;
 
 use JMS\Serializer\SerializerBuilder;
-use MetaShipRU\MetaShipPHPSDK\Response\Transaction\TransactionsResponse;
+use MetaShipRU\MetaShipPHPSDK\Response\Order\OrderResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -16,13 +16,13 @@ class OrderTransactionsResponseFormatter
 {
     /**
      * @param ResponseInterface $response
-     * @return TransactionsResponse
+     * @return OrderResponse
      */
-    public static function format(ResponseInterface $response): TransactionsResponse
+    public static function format(ResponseInterface $response): OrderResponse
     {
         return SerializerBuilder::create()->build()->deserialize(
             $response->getBody()->getContents(),
-            TransactionsResponse::class,
+            OrderResponse::class,
             'json'
         );
     }

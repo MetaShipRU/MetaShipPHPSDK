@@ -11,37 +11,39 @@ use JMS\Serializer\Annotation as Serializer;
 class Place
 {
     /**
-     * @Serializer("string")
+     * @Serializer\SerializedName("shopServiceNumber")
+     * @Serializer\Type("string")
      * @var string
      */
     public $shopServiceNumber;
 
     /**
-     * @Serializer("string")
+     * @Serializer\SerializedName("deliveryServiceNumber")
+     * @Serializer\Type("string")
      * @var string
      */
     public $deliveryServiceNumber;
 
     /**
-     * @Serializer("float")
+     * @Serializer\Type("float")
      * @var float
      */
     public $weight;
 
     /**
-     * @Serializer("integer")
+     * @Serializer\Type("integer")
      * @var int
      */
     public $width;
 
     /**
-     * @Serializer("integer")
+     * @Serializer\Type("integer")
      * @var int
      */
     public $length;
 
     /**
-     * @Serializer("integer")
+     * @Serializer\Type("integer")
      * @var int
      */
     public $height;

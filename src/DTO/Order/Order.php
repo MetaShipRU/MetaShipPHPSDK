@@ -4,6 +4,7 @@ namespace MetaShipRU\MetaShipPHPSDK\DTO\Order;
 
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Item\Item;
+use MetaShipRU\MetaShipPHPSDK\DTO\Place\Place;
 use MetaShipRU\MetaShipPHPSDK\DTO\Recipient\Recipient;
 use MetaShipRU\MetaShipPHPSDK\DTO\Status\OrderStatus;
 use MetaShipRU\MetaShipPHPSDK\DTO\Transaction\Transaction;
@@ -180,6 +181,12 @@ class Order
      * @var Item[]
      */
     public $items;
+
+    /**
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Place\Place>")
+     * @var Place[]
+     */
+    public $places;
 
     /**
      * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Status\OrderStatus>")

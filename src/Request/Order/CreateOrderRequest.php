@@ -3,6 +3,7 @@
 namespace MetaShipRU\MetaShipPHPSDK\Request\Order;
 
 use JMS\Serializer\Annotation as Serializer;
+use MetaShipRU\MetaShipPHPSDK\DTO\Place\Place;
 use MetaShipRU\MetaShipPHPSDK\Request\IRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Item\CreateItemRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Recipient\CreateRecipientRequest;
@@ -205,6 +206,12 @@ class CreateOrderRequest implements IRequest
      * @var CreateItemRequest[]
      */
     public $items;
+
+    /**
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\Request\Place\Place>")
+     * @var Place[]
+     */
+    public $places;
 
     /**
      * @Serializer\SerializedName("created")

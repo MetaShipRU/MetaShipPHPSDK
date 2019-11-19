@@ -208,7 +208,7 @@ class CreateOrderRequest implements IRequest
     public $items;
 
     /**
-     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\Request\Place\Place>")
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Place\Place>")
      * @var Place[]
      */
     public $places;

@@ -16,6 +16,6 @@ class AcceptanceResponseFormatter
     public static function format(ResponseInterface $acceptanceResponse): AcceptanceResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($acceptanceResponse->getBody()->getContents(), AcceptanceResponse::class, 'json');
+        return $serializer->deserialize((string)$acceptanceResponse->getBody(), AcceptanceResponse::class, 'json');
     }
 }

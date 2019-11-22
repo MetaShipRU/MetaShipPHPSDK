@@ -15,7 +15,7 @@ class OrderStatusHistoryResponseFormatter
     public static function format(ResponseInterface $orderStatusHistoryResponse): OrderResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($orderStatusHistoryResponse->getBody()->getContents(),
+        return $serializer->deserialize((string)$orderStatusHistoryResponse->getBody(),
             OrderResponse::class,
             'json');
     }

@@ -15,6 +15,6 @@ class LabelResponseFormatter
     public static function format(ResponseInterface $labelResponse): LabelResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($labelResponse->getBody()->getContents(), LabelResponse::class, 'json');
+        return $serializer->deserialize((string)$labelResponse->getBody(), LabelResponse::class, 'json');
     }
 }

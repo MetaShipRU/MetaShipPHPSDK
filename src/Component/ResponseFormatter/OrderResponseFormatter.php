@@ -15,6 +15,6 @@ class OrderResponseFormatter
     public static function format(ResponseInterface $orderResponse): OrderResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($orderResponse->getBody()->getContents(), OrderResponse::class, 'json');
+        return $serializer->deserialize((string)$orderResponse->getBody(), OrderResponse::class, 'json');
     }
 }

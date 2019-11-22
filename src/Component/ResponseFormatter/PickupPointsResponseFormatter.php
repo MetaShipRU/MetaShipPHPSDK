@@ -13,6 +13,6 @@ class PickupPointsResponseFormatter
     public static function format(ResponseInterface $orderResponse): PickupPointsResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($orderResponse->getBody()->getContents(), PickupPointsResponse::class, 'json');
+        return $serializer->deserialize((string)$orderResponse->getBody(), PickupPointsResponse::class, 'json');
     }
 }

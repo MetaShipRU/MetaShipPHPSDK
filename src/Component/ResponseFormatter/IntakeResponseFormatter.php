@@ -15,6 +15,6 @@ class IntakeResponseFormatter
     public static function format(ResponseInterface $orderResponse): IntakeResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($orderResponse->getBody()->getContents(), IntakeResponse::class, 'json');
+        return $serializer->deserialize((string)$orderResponse->getBody(), IntakeResponse::class, 'json');
     }
 }

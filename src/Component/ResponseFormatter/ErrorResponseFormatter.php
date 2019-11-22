@@ -15,6 +15,6 @@ class ErrorResponseFormatter
     public static function format(ResponseInterface $errorResponse): ErrorResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($errorResponse->getBody()->getContents(), ErrorResponse::class, 'json');
+        return $serializer->deserialize((string)$errorResponse->getBody(), ErrorResponse::class, 'json');
     }
 }

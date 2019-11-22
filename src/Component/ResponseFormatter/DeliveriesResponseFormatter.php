@@ -15,6 +15,6 @@ class DeliveriesResponseFormatter
     public static function format(ResponseInterface $deliveriesResponse): DeliveriesResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($deliveriesResponse->getBody()->getContents(), DeliveriesResponse::class, 'json');
+        return $serializer->deserialize((string)$deliveriesResponse->getBody(), DeliveriesResponse::class, 'json');
     }
 }

@@ -15,6 +15,6 @@ class ParcelsResponseFormatter
     public static function format(ResponseInterface $orderResponse): ParcelsResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($orderResponse->getBody()->getContents(), ParcelsResponse::class, 'json');
+        return $serializer->deserialize((string)$orderResponse->getBody(), ParcelsResponse::class, 'json');
     }
 }

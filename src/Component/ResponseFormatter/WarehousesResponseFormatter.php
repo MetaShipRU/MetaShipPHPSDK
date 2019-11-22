@@ -11,6 +11,6 @@ class WarehousesResponseFormatter
     public static function format(ResponseInterface $warehousesResponse): WarehousesResponse
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($warehousesResponse->getBody()->getContents(), WarehousesResponse::class, 'json');
+        return $serializer->deserialize((string)$warehousesResponse->getBody(), WarehousesResponse::class, 'json');
     }
 }

@@ -21,7 +21,7 @@ class OrdersTransactionsResponseFormatter
     public static function format(ResponseInterface $response): OrdersResponse
     {
         return SerializerBuilder::create()->build()->deserialize(
-            $response->getBody()->getContents(),
+            (string)$response->getBody(),
             OrdersResponse::class,
             'json'
         );

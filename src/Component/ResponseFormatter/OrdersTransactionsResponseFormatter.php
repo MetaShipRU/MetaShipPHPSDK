@@ -5,24 +5,24 @@ declare(strict_types=1);
 namespace MetaShipRU\MetaShipPHPSDK\Component\ResponseFormatter;
 
 use JMS\Serializer\SerializerBuilder;
-use MetaShipRU\MetaShipPHPSDK\Response\Order\OrderResponse;
+use MetaShipRU\MetaShipPHPSDK\Response\Order\OrdersResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Class OrderTransactionsResponseFormatter
+ * Class OrdersTransactionsResponseFormatter
  * @package MetaShipRU\MetaShipPHPSDK\Component\ResponseFormatter
  */
-class OrderTransactionsResponseFormatter
+class OrdersTransactionsResponseFormatter
 {
     /**
      * @param ResponseInterface $response
-     * @return OrderResponse
+     * @return OrdersResponse
      */
-    public static function format(ResponseInterface $response): OrderResponse
+    public static function format(ResponseInterface $response): OrdersResponse
     {
         return SerializerBuilder::create()->build()->deserialize(
             $response->getBody()->getContents(),
-            OrderResponse::class,
+            OrdersResponse::class,
             'json'
         );
     }

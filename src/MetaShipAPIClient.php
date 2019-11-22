@@ -20,7 +20,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryRequest;
-use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderTransactionsRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersTransactionsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateBatchWarehousesRequest;
@@ -224,15 +224,15 @@ class MetaShipAPIClient
             ]);
     }
 
-    public function searchOrderTransactions(SearchOrderTransactionsRequest $searchOrderTransactionsRequest): ResponseInterface
+    public function searchOrdersTransactions(SearchOrdersTransactionsRequest $request): ResponseInterface
     {
-        $params = $this->serializer->toArray($searchOrderTransactionsRequest);
-        return $this->client->request($searchOrderTransactionsRequest->getMethod(),
-            $searchOrderTransactionsRequest->getPath(),
+        $params = $this->serializer->toArray($request);
+        return $this->client->request($request->getMethod(),
+            $request->getPath(),
             [
                 'query' => $params,
-                'headers' => $this->getHeaders($searchOrderTransactionsRequest->getMethod(),
-                    $searchOrderTransactionsRequest->getPath(),
+                'headers' => $this->getHeaders($request->getMethod(),
+                    $request->getPath(),
                     '',
                     http_build_query($params)),
             ]);

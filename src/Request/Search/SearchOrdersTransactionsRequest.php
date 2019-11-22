@@ -9,20 +9,21 @@ use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
 
 
 /**
- * Class SearchOrderTransactionsRequest
+ * Class SearchOrdersTransactionsRequest
  * @package MetaShipRU\MetaShipPHPSDK\Request\Search
  */
-class SearchOrderTransactionsRequest
+class SearchOrdersTransactionsRequest
 {
     use RequestCore;
 
     const METHOD = 'GET';
-    const PATH = '/v1/search/order/transactions';
+    const PATH = '/v1/search/orders/transactions';
 
     /**
+     * @Serializer\Type("array")
      * @Serializer\SerializedName("shopNumber")
      *
-     * @var string
+     * @var array
      */
     public $shopNumber;
 

@@ -14,7 +14,7 @@ class PickupPointsResponse
     /**
      * @Serializer\Inline
      * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\PickupPoint\PickupPoint>")
-     * @var PickupPoint
+     * @var PickupPoint[]
      */
     public $pickupPoints;
 

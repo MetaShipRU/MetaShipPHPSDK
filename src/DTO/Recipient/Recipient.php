@@ -4,6 +4,7 @@ namespace MetaShipRU\MetaShipPHPSDK\DTO\Recipient;
 
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Address\Address;
+use MetaShipRU\MetaShipPHPSDK\DTO\PickupPoint\PickupPoint;
 
 /**
  * Class Recipient
@@ -39,11 +40,20 @@ class Recipient
     public $address;
 
     /**
+     * @Serializer\SerializedName("pickupPoint")
+     * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\PickupPoint\PickupPoint")
+     * @var PickupPoint
+     */
+    public $pickupPoint;
+
+    /**
+     * @deprecated
      * @var int
      */
     public $pickupPointId;
 
     /**
+     * @deprecated
      * @var string
      */
     public $pickupPointServiceNumber;

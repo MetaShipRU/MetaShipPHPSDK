@@ -105,6 +105,13 @@ class CreateOrderRequest implements IRequest
     public $shopServiceCode;
 
     /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("warehouseServiceCode")
+     * @var string
+     */
+    public $warehouseServiceCode;
+
+    /**
      * @Serializer\Type("float")
      * @Serializer\SerializedName("assessedValue")
      * @var float

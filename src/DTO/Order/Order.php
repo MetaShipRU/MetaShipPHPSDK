@@ -39,6 +39,7 @@ class Order
     const STATUS_RETURN_ARRIVED_WAREHOUSE = 'return_arrived_warehouse';
     const STATUS_RETURN_COMPLETED = 'return_completed';
     const STATUS_DELIVERY_CANCELLED = 'delivery_cancelled';
+    const STATUS_DELIVERY_DATE_CHANGED = 'delivery_date_changed';
 
     const STATUS_UNKNOWN = 'unknown';
     const STATUS_ERROR = 'error';
@@ -65,7 +66,8 @@ class Order
         self::STATUS_DELETED => 'Заказ удален',
         self::STATUS_UNKNOWN => 'Неизвестный статус',
         self::STATUS_DELIVERY_CANCELLED => 'Заказ отменен службой',
-        self::STATUS_CANCELLED => 'Заказ отменен'
+        self::STATUS_CANCELLED => 'Заказ отменен',
+        self::STATUS_DELIVERY_DATE_CHANGED => 'Дата заказа перенесена по просьбе службы'
     ];
 
     /**

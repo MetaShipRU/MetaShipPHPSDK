@@ -21,6 +21,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersTransactionsRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateBatchWarehousesRequest;
@@ -301,6 +302,20 @@ class MetaShipAPIClient
                 'query' => $params,
                 'headers' => $this->getHeaders($searchOrdersStatusHistoryRequest->getMethod(),
                     $searchOrdersStatusHistoryRequest->getPath(),
+                    '',
+                    http_build_query($params)),
+            ]);
+    }
+
+    public function getSearchWarehouses(SearchWarehousesRequest $searchWarehousesRequest): ResponseInterface
+    {
+        $params = $this->serializer->toArray($searchWarehousesRequest);
+        return $this->client->request($searchWarehousesRequest->getMethod(),
+            $searchWarehousesRequest->getPath(),
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders($searchWarehousesRequest->getMethod(),
+                    $searchWarehousesRequest->getPath(),
                     '',
                     http_build_query($params)),
             ]);

@@ -85,6 +85,13 @@ class Order
 
     /**
      * @Serializer\Type("string")
+     * @Serializer\SerializedName("fulfillmentServiceNumber")
+     * @var string
+     */
+    public $fulfillmentServiceNumber;
+
+    /**
+     * @Serializer\Type("string")
      * @Serializer\SerializedName("shopNumber")
      * @var string
      */

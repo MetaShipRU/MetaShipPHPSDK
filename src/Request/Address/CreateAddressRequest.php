@@ -71,5 +71,4 @@ class CreateAddressRequest
      * @var string
      */
     public $fullAddress;
-
 }

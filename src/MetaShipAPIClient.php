@@ -17,6 +17,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\UpdateOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Parcel\CreateParcelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Product\ProductDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryRequest;
@@ -33,6 +34,8 @@ use Psr\Http\Message\ResponseInterface;
  */
 class MetaShipAPIClient
 {
+    private const FORMAT = 'json';
+
     /**
      * @var Client
      */
@@ -146,6 +149,16 @@ class MetaShipAPIClient
                     $createParcelRequest->getPath(),
                     $body)
             ]);
+    }
+
+    public function createProduct(ProductDataRequest $request): ResponseInterface
+    {
+        $body = $this->serializer->serialize($request, self::FORMAT);
+
+        return $this->client->post($request->getPath(), [
+            'body' => $body,
+            'headers' => $this->getHeaders($request->getMethod(), $request->getPath(), $body),
+        ]);
     }
 
     public function getAcceptance(GetAcceptanceRequest $getAcceptanceRequest): ResponseInterface

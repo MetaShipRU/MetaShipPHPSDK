@@ -16,12 +16,18 @@ final class ProductDataRequest implements IRequest
     public const METHOD = 'POST';
 
     /**
-     * @Serializer\SerializedName("shopId")
-     * @Serializer\Type("integer")
+     * @Serializer\Type("string")
      *
-     * @var int
+     * @var string
      */
-    private $shopId;
+    private $shop;
+
+    /**
+     * @Serializer\Type("string")
+     *
+     * @var string
+     */
+    private $delivery;
 
     /**
      * @Serializer\SerializedName("productId")
@@ -38,16 +44,22 @@ final class ProductDataRequest implements IRequest
      */
     private $data;
 
-    public function __construct(int $shopId, string $productId, array $data)
+    public function __construct(string $shop, string $delivery, string $productId, array $data)
     {
-        $this->shopId = $shopId;
+        $this->shop = $shop;
+        $this->delivery = $delivery;
         $this->productId = $productId;
         $this->data = $data;
     }
 
-    public function getShopId(): int
+    public function getShop(): string
     {
-        return $this->shopId;
+        return $this->shop;
+    }
+
+    public function getDelivery(): string
+    {
+        return $this->delivery;
     }
 
     public function getProductId(): string

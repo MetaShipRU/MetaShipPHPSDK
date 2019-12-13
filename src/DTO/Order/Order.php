@@ -27,19 +27,28 @@ class Order
     const STATUS_CREATED = 'created';
     const STATUS_PENDING = 'pending';
     const STATUS_WAIT_DELIVERY = 'wait_delivery';
+
     const STATUS_DELIVERY_PREPARED = 'delivery_prepared';
     const STATUS_DELIVERY_PREPARED_TO_SEND = 'delivery_prepared_to_send';
+    const STATUS_DELIVERY_INTRANSIT = 'delivery_intransit';
+    const STATUS_DELIVERY_ARRIVED = 'delivery_arrived';
+    const STATUS_DELIVERY_STORAGE_PERIOD_EXPIRED = 'delivery_storage_period_expired';
+    const STATUS_DELIVERY_UPDATED_BY_SHOP = 'delivery_updated_by_shop';
+
     const STATUS_INTRANSIT = 'intransit';
     const STATUS_ARRIVED = 'arrived';
     const STATUS_STORED = 'stored';
     const STATUS_TRANSPORTATION_RECIPIENT = 'transportation_recipient';
     const STATUS_DELIVERED = 'delivered';
+
     const STATUS_EXPECTED_FULL_RETURN = 'expected_full_return';
     const STATUS_EXPECTED_PARTIAL_RETURN = 'expected_partial_return';
     const STATUS_RETURN_ARRIVED_WAREHOUSE = 'return_arrived_warehouse';
     const STATUS_RETURN_COMPLETED = 'return_completed';
+
     const STATUS_DELIVERY_CANCELLED = 'delivery_cancelled';
     const STATUS_DELIVERY_DATE_CHANGED = 'delivery_date_changed';
+    const STATUS_RECIPIENT_DATE_CHANGED = 'recipient_date_changed';
 
     const STATUS_UNKNOWN = 'unknown';
     const STATUS_ERROR = 'error';
@@ -48,11 +57,14 @@ class Order
 
     const STATUSES_TITLE = [
         self::STATUS_DRAFT => 'Заказ черновик',
-        self::STATUS_CREATED => 'Заказ создан c полной информацией',
         self::STATUS_PENDING => 'Заказ создан в информационной системе службы',
         self::STATUS_WAIT_DELIVERY => 'Заказ подготовлен к отправке',
         self::STATUS_DELIVERY_PREPARED => 'Заказ на складе службы',
-        self::STATUS_DELIVERY_PREPARED_TO_SEND => 'Заказ на складе службы, готов к отправке',
+        self::STATUS_DELIVERY_PREPARED_TO_SEND => 'Заказ на складе СД, готовится к передаче на доставку',
+        self::STATUS_DELIVERY_INTRANSIT => 'Заказ доставляется в филиал СД',
+        self::STATUS_DELIVERY_ARRIVED => 'Заказ прибыл в филиал СД',
+        self::STATUS_DELIVERY_STORAGE_PERIOD_EXPIRED => 'Заказ в филиале СД, срок его хранения закончился',
+        self::STATUS_DELIVERY_UPDATED_BY_SHOP => 'Доставка заказа перенесена по инициативе магазина',
         self::STATUS_INTRANSIT => 'Заказ доставляется',
         self::STATUS_ARRIVED => 'Заказ в городе получателя',
         self::STATUS_STORED => 'Заказ поступил в пункт выдачи',
@@ -64,10 +76,10 @@ class Order
         self::STATUS_ERROR => 'Заказ создан с ошибкой',
         self::STATUS_DELIVERED => 'Заказ доставлен',
         self::STATUS_DELETED => 'Заказ удален',
-        self::STATUS_UNKNOWN => 'Неизвестный статус',
         self::STATUS_DELIVERY_CANCELLED => 'Заказ отменен службой',
         self::STATUS_CANCELLED => 'Заказ отменен',
-        self::STATUS_DELIVERY_DATE_CHANGED => 'Дата заказа перенесена по просьбе службы'
+        self::STATUS_DELIVERY_DATE_CHANGED => 'Дата заказа перенесена по просьбе службы',
+        self::STATUS_RECIPIENT_DATE_CHANGED => 'Дата заказа перенесена по просьбе получателя',
     ];
 
     /**

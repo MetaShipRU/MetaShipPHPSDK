@@ -33,7 +33,6 @@ class Order
     const STATUS_DELIVERY_INTRANSIT = 'delivery_intransit';
     const STATUS_DELIVERY_ARRIVED = 'delivery_arrived';
     const STATUS_DELIVERY_STORAGE_PERIOD_EXPIRED = 'delivery_storage_period_expired';
-    const STATUS_DELIVERY_UPDATED_BY_SHOP = 'delivery_updated_by_shop';
 
     const STATUS_INTRANSIT = 'intransit';
     const STATUS_ARRIVED = 'arrived';
@@ -49,6 +48,7 @@ class Order
     const STATUS_DELIVERY_CANCELLED = 'delivery_cancelled';
     const STATUS_DELIVERY_DATE_CHANGED = 'delivery_date_changed';
     const STATUS_RECIPIENT_DATE_CHANGED = 'recipient_date_changed';
+    const STATUS_SHOP_DATE_CHANGED = 'shop_date_changed';
 
     const STATUS_UNKNOWN = 'unknown';
     const STATUS_ERROR = 'error';
@@ -64,7 +64,7 @@ class Order
         self::STATUS_DELIVERY_INTRANSIT => 'Заказ доставляется в филиал СД',
         self::STATUS_DELIVERY_ARRIVED => 'Заказ прибыл в филиал СД',
         self::STATUS_DELIVERY_STORAGE_PERIOD_EXPIRED => 'Заказ в филиале СД, срок его хранения закончился',
-        self::STATUS_DELIVERY_UPDATED_BY_SHOP => 'Доставка заказа перенесена по инициативе магазина',
+        self::STATUS_SHOP_DATE_CHANGED => 'Доставка заказа перенесена по инициативе магазина',
         self::STATUS_INTRANSIT => 'Заказ доставляется',
         self::STATUS_ARRIVED => 'Заказ в городе получателя',
         self::STATUS_STORED => 'Заказ поступил в пункт выдачи',

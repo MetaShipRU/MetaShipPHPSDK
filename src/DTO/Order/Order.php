@@ -38,6 +38,7 @@ class Order
     const STATUS_ARRIVED = 'arrived';
     const STATUS_STORED = 'stored';
     const STATUS_TRANSPORTATION_RECIPIENT = 'transportation_recipient';
+    const STATUS_TRANSMITTED_RECIPIENT = 'transmitted_recipient';
     const STATUS_DELIVERED = 'delivered';
 
     const STATUS_EXPECTED_FULL_RETURN = 'expected_full_return';
@@ -69,6 +70,7 @@ class Order
         self::STATUS_ARRIVED => 'Заказ в городе получателя',
         self::STATUS_STORED => 'Заказ поступил в пункт выдачи',
         self::STATUS_TRANSPORTATION_RECIPIENT => 'Заказ доставляется получателю',
+        self::STATUS_TRANSMITTED_RECIPIENT => 'Заказ передан получателю',
         self::STATUS_EXPECTED_FULL_RETURN => 'Заказ готовится к возврату',
         self::STATUS_EXPECTED_PARTIAL_RETURN => 'Заказ готовится к частичному возврату',
         self::STATUS_RETURN_ARRIVED_WAREHOUSE => 'Заказ возвращен на склад службы',

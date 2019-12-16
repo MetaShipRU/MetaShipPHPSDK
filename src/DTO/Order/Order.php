@@ -40,11 +40,14 @@ class Order
     const STATUS_TRANSPORTATION_RECIPIENT = 'transportation_recipient';
     const STATUS_TRANSMITTED_RECIPIENT = 'transmitted_recipient';
     const STATUS_DELIVERED = 'delivered';
+    const STATUS_NOT_RECEIVED = 'not_received';
 
     const STATUS_EXPECTED_FULL_RETURN = 'expected_full_return';
     const STATUS_EXPECTED_PARTIAL_RETURN = 'expected_partial_return';
     const STATUS_RETURN_ARRIVED_WAREHOUSE = 'return_arrived_warehouse';
     const STATUS_RETURN_COMPLETED = 'return_completed';
+    const STATUS_RETURN_TRANSMITTED_FULFILLMENT = 'return_transmitted_fulfillment';
+    const STATUS_DELIVERY_ATTEMPT_FAILED = 'delivery_attempt_failed';
 
     const STATUS_DELIVERY_CANCELLED = 'delivery_cancelled';
     const STATUS_DELIVERY_DATE_CHANGED = 'delivery_date_changed';
@@ -75,6 +78,8 @@ class Order
         self::STATUS_EXPECTED_PARTIAL_RETURN => 'Заказ готовится к частичному возврату',
         self::STATUS_RETURN_ARRIVED_WAREHOUSE => 'Заказ возвращен на склад службы',
         self::STATUS_RETURN_COMPLETED => 'Заказ возвращен в интернет-магазин',
+        self::STATUS_RETURN_TRANSMITTED_FULFILLMENT => 'Заказ возвращен на склад сортировочного центра',
+        self::STATUS_DELIVERY_ATTEMPT_FAILED => 'Неудачная попытка вручения заказа получателю',
         self::STATUS_ERROR => 'Заказ создан с ошибкой',
         self::STATUS_DELIVERED => 'Заказ доставлен',
         self::STATUS_DELETED => 'Заказ удален',
@@ -82,6 +87,7 @@ class Order
         self::STATUS_CANCELLED => 'Заказ отменен',
         self::STATUS_DELIVERY_DATE_CHANGED => 'Дата заказа перенесена по просьбе службы',
         self::STATUS_RECIPIENT_DATE_CHANGED => 'Дата заказа перенесена по просьбе получателя',
+        self::STATUS_NOT_RECEIVED => 'Заказ не вручен'
     ];
 
     /**

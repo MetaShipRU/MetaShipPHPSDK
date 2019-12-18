@@ -23,6 +23,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersTransactionsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchWarehousesRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateBatchWarehousesRequest;
@@ -159,6 +160,19 @@ class MetaShipAPIClient
             'body' => $body,
             'headers' => $this->getHeaders($request->getMethod(), $request->getPath(), $body),
         ]);
+    }
+
+    public function createShipment(ShipmentDataRequest $request): ResponseInterface
+    {
+        $body = $this->serializer->serialize($request, self::FORMAT);
+
+        return $this->client->post(
+            $request->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($request->getMethod(), $request->getPath(), $body),
+            ]
+        );
     }
 
     public function getAcceptance(GetAcceptanceRequest $getAcceptanceRequest): ResponseInterface

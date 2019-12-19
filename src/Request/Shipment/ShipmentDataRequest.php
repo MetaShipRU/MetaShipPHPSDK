@@ -12,7 +12,7 @@ final class ShipmentDataRequest implements IRequest
 {
     use RequestCore;
 
-    public const PATH = '/v1/products';
+    public const PATH = '/v1/shipments';
     public const METHOD = 'POST';
 
     /**

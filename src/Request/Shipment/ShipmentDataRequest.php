@@ -30,6 +30,7 @@ final class ShipmentDataRequest implements IRequest
     private $delivery;
 
     /**
+     * @Serializer\SerializedName("shipmentId")
      * @Serializer\Type("string")
      *
      * @var string

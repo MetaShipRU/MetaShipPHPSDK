@@ -5,51 +5,97 @@ declare(strict_types=1);
 namespace MetaShipRU\MetaShipPHPSDK\DTO\Shipment;
 
 use JMS\Serializer\Annotation as Serializer;
-use MetaShipRU\MetaShipPHPSDK\DTO\Product\Products;
 
 final class Shipment
 {
+    public const STATUS__CREATED = 'created';
+    public const STATUS__CREATION_ERROR = 'creation_error';
+
     /**
      * @Serializer\Type("integer")
      *
-     * @var int|null
+     * @var int
      */
     private $id;
 
     /**
-     * @Serializer\Type("boolean")
+     * @Serializer\Type("string")
      *
-     * @var bool|null
+     * @var string
      */
-    private $arrived;
+    private $shop;
 
     /**
-     * @Serializer\SerializedName("awaitingCount")
-     * @Serializer\Type("integer")
+     * @Serializer\Type("string")
      *
-     * @var int|null
+     * @var string
      */
-    private $awaitingCount;
+    private $delivery;
 
     /**
-     * @Serializer\SerializedName("awaitingProductCount")
-     * @Serializer\Type("integer")
+     * @Serializer\SerializedName("externalId")
+     * @Serializer\Type("string")
      *
-     * @var int|null
+     * @var string
      */
-    private $awaitingProductCount;
+    private $externalId;
 
     /**
-     * @Serializer\Type("integer")
+     * @Serializer\Type("string")
      *
-     * @var int|null
+     * @var string
      */
-    private $stock;
+    private $status;
 
     /**
-     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Product\Products>")
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Shipment\ShipmentStatus>")
      *
-     * @var Products[]|null
+     * @var ShipmentStatus[]
      */
-    private $products;
+    private $statuses;
+
+    /**
+     * @Serializer\Type("array")
+     *
+     * @var array
+     */
+    private $data;
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getShop(): string
+    {
+        return $this->shop;
+    }
+
+    public function getDelivery(): string
+    {
+        return $this->delivery;
+    }
+
+    public function getExternalId(): string
+    {
+        return $this->externalId;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return ShipmentStatus[]
+     */
+    public function getStatuses(): array
+    {
+        return $this->statuses;
+    }
+
+    public function getData(): array
+    {
+        return $this->data;
+    }
 }

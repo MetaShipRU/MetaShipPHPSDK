@@ -18,6 +18,13 @@ class OrderStatus
 
     /**
      * @Serializer\Type("string")
+     * @Serializer\SerializedName("externalDate")
+     * @var string
+     */
+    public $externalDate;
+
+    /**
+     * @Serializer\Type("string")
      * @var string
      */
     public $code;

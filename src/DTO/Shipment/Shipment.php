@@ -8,6 +8,7 @@ use JMS\Serializer\Annotation as Serializer;
 
 final class Shipment
 {
+    public const STATUS__ARRIVED = 'arrived';
     public const STATUS__CREATED = 'created';
     public const STATUS__CREATION_ERROR = 'creation_error';
 

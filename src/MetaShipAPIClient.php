@@ -22,6 +22,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersTransactionsRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchShipmentsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
@@ -264,6 +265,19 @@ class MetaShipAPIClient
                     '',
                     http_build_query($params)),
             ]);
+    }
+
+    public function searchShipments(SearchShipmentsRequest $request): ResponseInterface
+    {
+        $body = $this->serializer->serialize($request, self::FORMAT);
+
+        return $this->client->post(
+            $request->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($request->getMethod(), $request->getPath(), $body),
+            ]
+        );
     }
 
     public function createIntake(CreateIntakeRequest $createIntakeRequest): ResponseInterface

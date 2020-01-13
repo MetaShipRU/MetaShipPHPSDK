@@ -3,6 +3,7 @@
 namespace MetaShipRU\MetaShipPHPSDK;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use MetaShipRU\MetaShipPHPSDK\Request\Delivery\GetDeliveriesRequest;
@@ -25,6 +26,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersTransactionsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchShipmentsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentDataRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateBatchWarehousesRequest;
@@ -267,15 +269,21 @@ class MetaShipAPIClient
             ]);
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function searchShipments(SearchShipmentsRequest $request): ResponseInterface
     {
-        $body = $this->serializer->serialize($request, self::FORMAT);
+        $method = $request->getMethod();
+        $path = $request->getPath();
+        $params = $this->serializer->toArray($request);
 
-        return $this->client->post(
-            $request->getPath(),
+        return $this->client->request(
+            $method,
+            $path,
             [
-                'body' => $body,
-                'headers' => $this->getHeaders($request->getMethod(), $request->getPath(), $body),
+                'query' => $params,
+                'headers' => $this->getHeaders($method, $path, '', http_build_query($params)),
             ]
         );
     }
@@ -360,6 +368,25 @@ class MetaShipAPIClient
                     '',
                     http_build_query($params)),
             ]);
+    }
+
+    /**
+     * @throws GuzzleException
+     */
+    public function updateShipment(int $id, ShipmentPatchRequest $request): ResponseInterface
+    {
+        $method = $request->getMethod();
+        $path = $request->getPath($id);
+        $body = $this->serializer->serialize($request, self::FORMAT);
+
+        return $this->client->request(
+            $method,
+            $path,
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($method, $path, $body),
+            ]
+        );
     }
 
     private function getHeaders(string $requestMethod, string $requestSlug, string $requestBody = '',

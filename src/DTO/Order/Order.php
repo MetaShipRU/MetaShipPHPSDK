@@ -173,6 +173,13 @@ class Order
     public $desiredDeliveryDate;
 
     /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("expectedDeliveryDate")
+     * @var string
+     */
+    public $expectedDeliveryDate;
+
+    /**
      * @Serializer\SerializedName("timeFrom")
      * @Serializer\Type("string")
      * @var string

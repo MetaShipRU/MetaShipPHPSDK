@@ -27,6 +27,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchShipmentsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentPatchRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesInfoRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateBatchWarehousesRequest;
@@ -385,6 +386,26 @@ class MetaShipAPIClient
             [
                 'body' => $body,
                 'headers' => $this->getHeaders($method, $path, $body),
+            ]
+        );
+    }
+
+    public function getStatusesInfo(GetStatusesInfoRequest $getStatusesInfoRequest): ResponseInterface
+    {
+        $path = $getStatusesInfoRequest->getPath();
+        $params = $this->serializer->toArray($getStatusesInfoRequest);
+
+        return $this->client->request(
+            $getStatusesInfoRequest->getMethod(),
+            $path,
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders(
+                    $getStatusesInfoRequest->getMethod(),
+                    $path,
+                    '',
+                    http_build_query($params)
+                ),
             ]
         );
     }

@@ -11,6 +11,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetAcceptanceRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetLabelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Intake\CreateIntakeRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Offer\OfferRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Order\CreateBatchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\CreateOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\DeleteOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrderRequest;
@@ -406,6 +407,22 @@ class MetaShipAPIClient
                     '',
                     http_build_query($params)
                 ),
+            ]
+        );
+    }
+
+    public function createBatchOrders(CreateBatchOrdersRequest $createBatchOrdersRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($createBatchOrdersRequest, 'json');
+        return $this->client->post(
+            $createBatchOrdersRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders(
+                    $createBatchOrdersRequest->getMethod(),
+                    $createBatchOrdersRequest->getPath(),
+                    $body
+                )
             ]
         );
     }

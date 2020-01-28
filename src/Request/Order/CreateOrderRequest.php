@@ -73,6 +73,12 @@ class CreateOrderRequest implements IRequest
     public $width;
 
     /**
+     * @Serializer\Type("float")
+     * @var float
+     */
+    public $volume;
+
+    /**
      * @Serializer\Type("integer")
      * @var int
      */

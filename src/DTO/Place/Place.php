@@ -25,6 +25,13 @@ class Place
     public $deliveryServiceNumber;
 
     /**
+     * @Serializer\SerializedName("assessedValue")
+     * @Serializer\Type("float")
+     * @var float
+     */
+    public $assessedValue;
+
+    /**
      * @Serializer\Type("float")
      * @var float
      */

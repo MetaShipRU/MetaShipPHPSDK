@@ -8,6 +8,9 @@ use JMS\Serializer\Annotation as Serializer;
 
 final class ShipmentOrder
 {
+    public const STATUS__CREATED = 'created';
+    public const STATUS__CREATION_ERROR = 'creation_error';
+
     /**
      * @Serializer\Type("string")
      *

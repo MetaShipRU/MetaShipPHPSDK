@@ -10,6 +10,10 @@ final class ShipmentOrder
 {
     public const STATUS__CREATED = 'created';
     public const STATUS__CREATION_ERROR = 'creation_error';
+    public const STATUS__SENDING_CONFIRMED = 'sending_confirmed';
+    public const STATUS__SENT = 'sent';
+
+    public const STATUS_FIELD = 'status';
 
     /**
      * @Serializer\Type("string")

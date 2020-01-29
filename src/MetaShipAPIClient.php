@@ -24,11 +24,13 @@ use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersTransactionsRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchShipmentOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchShipmentsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderDataRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesInfoRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
@@ -286,6 +288,27 @@ class MetaShipAPIClient
     }
 
     /**
+     * @param SearchShipmentOrdersRequest $request
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function searchShipmentOrders(SearchShipmentOrdersRequest $request): ResponseInterface
+    {
+        $method = $request->getMethod();
+        $path = $request->getPath();
+        $params = $this->serializer->toArray($request);
+
+        return $this->client->request(
+            $method,
+            $path,
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders($method, $path, '', http_build_query($params)),
+            ]
+        );
+    }
+
+    /**
      * @throws GuzzleException
      */
     public function searchShipments(SearchShipmentsRequest $request): ResponseInterface
@@ -390,6 +413,22 @@ class MetaShipAPIClient
      * @throws GuzzleException
      */
     public function updateShipment(int $id, ShipmentPatchRequest $request): ResponseInterface
+    {
+        $method = $request->getMethod();
+        $path = $request->getPath($id);
+        $body = $this->serializer->serialize($request, self::FORMAT);
+
+        return $this->client->request(
+            $method,
+            $path,
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($method, $path, $body),
+            ]
+        );
+    }
+
+    public function updateShipmentOrder(string $id, ShipmentOrderPatchRequest $request): ResponseInterface
     {
         $method = $request->getMethod();
         $path = $request->getPath($id);

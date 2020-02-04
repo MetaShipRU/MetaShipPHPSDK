@@ -11,6 +11,10 @@ use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
 final class ShipmentOrderDataRequest implements IRequest
 {
     use RequestCore;
+
+    public const PATH = '/v1/shipments/orders';
+    public const METHOD = 'POST';
+
     /**
      * @Serializer\Type("string")
      *

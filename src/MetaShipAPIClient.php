@@ -22,6 +22,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Product\ProductDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryBatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersTransactionsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchShipmentsRequest;
@@ -269,6 +270,24 @@ class MetaShipAPIClient
                     '',
                     http_build_query($params)),
             ]);
+    }
+
+    public function searchOrderStatusBatch(SearchOrderStatusHistoryBatchRequest $searchOrderStatusHistoryRequest
+    ): ResponseInterface {
+        $params = $this->serializer->toArray($searchOrderStatusHistoryRequest);
+        return $this->client->request(
+            $searchOrderStatusHistoryRequest->getMethod(),
+            $searchOrderStatusHistoryRequest->getPath(),
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders(
+                    $searchOrderStatusHistoryRequest->getMethod(),
+                    $searchOrderStatusHistoryRequest->getPath(),
+                    '',
+                    http_build_query($params)
+                ),
+            ]
+        );
     }
 
     public function searchOrdersTransactions(SearchOrdersTransactionsRequest $request): ResponseInterface

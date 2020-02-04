@@ -276,7 +276,8 @@ class MetaShipAPIClient
 
     public function searchOrderStatusBatch(SearchOrderStatusHistoryBatchRequest $searchOrderStatusHistoryRequest
     ): ResponseInterface {
-        $params = $this->serializer->toArray($searchOrderStatusHistoryRequest);
+        $ids = implode(',', $searchOrderStatusHistoryRequest->shopNumbers);
+        $params = ['shopNumbers' => $ids];
         return $this->client->request(
             $searchOrderStatusHistoryRequest->getMethod(),
             $searchOrderStatusHistoryRequest->getPath(),

@@ -15,6 +15,8 @@ final class ShipmentOrder
 
     public const STATUS_FIELD = 'status';
 
+    public const EXTENDED_STATUS__WITH_ERROR = 'with_error';
+
     /**
      * @Serializer\Type("string")
      *

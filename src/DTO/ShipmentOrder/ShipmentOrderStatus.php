@@ -30,6 +30,14 @@ final class ShipmentOrderStatus
     private $status;
 
     /**
+     * @Serializer\SerializedName("extendedStatus")
+     * @Serializer\Type("string")
+     *
+     * @var string
+     */
+    private $extendedStatus;
+
+    /**
      * @Serializer\Type("string")
      *
      * @var string|null
@@ -49,6 +57,11 @@ final class ShipmentOrderStatus
     public function getStatus(): string
     {
         return $this->status;
+    }
+
+    public function getExtendedStatus(): ?string
+    {
+        return $this->extendedStatus;
     }
 
     public function getComment(): ?string

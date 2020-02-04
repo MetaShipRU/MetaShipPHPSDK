@@ -20,14 +20,14 @@ class Schedule
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("timeFrom")
-     * @var int
+     * @var string
      */
     public $timeFrom;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("timeTo")
-     * @var int
+     * @var string
      */
     public $timeTo;
 }

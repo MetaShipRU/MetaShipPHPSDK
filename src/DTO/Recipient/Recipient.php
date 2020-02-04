@@ -15,46 +15,46 @@ class Recipient
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("firstName")
-     * @var string
+     * @var string | null
      */
     public $firstName;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("middleName")
-     * @var string
+     * @var string | null
      */
     public $middleName;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("lastName")
-     * @var string
+     * @var string | null
      */
     public $lastName;
 
     /**
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\Address\Address")
-     * @var Address
+     * @var Address | null
      */
     public $address;
 
     /**
      * @Serializer\SerializedName("pickupPoint")
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\PickupPoint\PickupPoint")
-     * @var PickupPoint
+     * @var PickupPoint | null
      */
     public $pickupPoint;
 
     /**
      * @deprecated
-     * @var int
+     * @var int | null
      */
     public $pickupPointId;
 
     /**
      * @deprecated
-     * @var string
+     * @var string | null
      */
     public $pickupPointServiceNumber;
 

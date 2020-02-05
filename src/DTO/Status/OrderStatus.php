@@ -12,26 +12,26 @@ class OrderStatus
 {
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $date;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("externalDate")
-     * @var string
+     * @var string|null
      */
     public $externalDate;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $code;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $description;
 }

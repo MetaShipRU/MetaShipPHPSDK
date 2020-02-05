@@ -41,72 +41,72 @@ class CreateOrderRequest implements IRequest
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $length;
 
     /**
      * @Serializer\SerializedName("shopId")
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $shopId;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("warehouseId")
-     * @var int
+     * @var int|null
      */
     public $warehouseId;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("fulfillmentServiceNumber")
-     * @var string
+     * @var string|null
      */
     public $fulfillmentServiceNumber;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $width;
 
     /**
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $volume;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $height;
 
     /**
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $weight;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("deliveryName")
-     * @var string
+     * @var string|null
      */
     public $deliveryName;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $status;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("shopServiceCode")
-     * @var string
+     * @var string|null
      */
     public $shopServiceCode;
 
@@ -120,7 +120,7 @@ class CreateOrderRequest implements IRequest
     /**
      * @Serializer\Type("float")
      * @Serializer\SerializedName("assessedValue")
-     * @var float
+     * @var float|null
      */
     public $assessedValue;
 
@@ -134,42 +134,42 @@ class CreateOrderRequest implements IRequest
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("paymentMethod")
-     * @var int
+     * @var int|null
      */
     public $paymentMethod;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("shopNumber")
-     * @var string
+     * @var string|null
      */
     public $shopNumber;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("deliveryType")
-     * @var string
+     * @var string|null
      */
     public $deliveryType;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("desiredDeliveryDate")
-     * @var string
+     * @var string|null
      */
     public $desiredDeliveryDate;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("expectedDeliveryDate")
-     * @var string
+     * @var string|null
      */
     public $expectedDeliveryDate;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("timeFrom")
-     * @var string
+     * @var string|null
      */
     public $timeFrom;
 
@@ -183,28 +183,28 @@ class CreateOrderRequest implements IRequest
     /**
      * @Serializer\Type("float")
      * @Serializer\SerializedName("deliveryCost")
-     * @var float
+     * @var float|null
      */
     public $deliveryCost;
 
     /**
      * @Serializer\Type("float")
      * @Serializer\SerializedName("prepaidValue")
-     * @var float
+     * @var float|null
      */
     public $prepaidValue;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("tariffId")
-     * @var string
+     * @var string|null
      */
     public $tariffId;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("shipmentDate")
-     * @var string
+     * @var string|null
      */
     public $shipmentDate;
 
@@ -236,7 +236,7 @@ class CreateOrderRequest implements IRequest
     /**
      * @Serializer\SerializedName("created")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $created;
 }

@@ -12,19 +12,19 @@ class DeliveryCost
 {
     /**
      * @Type("float")
-     * @var float
+     * @var float|null
      */
     public $base;
 
     /**
      * @Type("float")
-     * @var float
+     * @var float|null
      */
     public $service;
 
     /**
      * @Type("float")
-     * @var float
+     * @var float|null
      */
     public $total;
 }

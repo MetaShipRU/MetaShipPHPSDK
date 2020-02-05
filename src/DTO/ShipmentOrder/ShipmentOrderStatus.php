@@ -10,36 +10,31 @@ final class ShipmentOrderStatus
 {
     /**
      * @Serializer\Type("string")
-     *
-     * @var string
+     * @var string|null
      */
     private $id;
 
     /**
      * @Serializer\Type("string")
-     *
-     * @var string
+     * @var string|null
      */
     private $timestamp;
 
     /**
      * @Serializer\Type("string")
-     *
-     * @var string
+     * @var string|null
      */
     private $status;
 
     /**
      * @Serializer\SerializedName("extendedStatus")
      * @Serializer\Type("string")
-     *
-     * @var string
+     * @var string|null
      */
     private $extendedStatus;
 
     /**
      * @Serializer\Type("string")
-     *
      * @var string|null
      */
     private $comment;

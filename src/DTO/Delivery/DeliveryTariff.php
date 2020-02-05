@@ -12,12 +12,12 @@ class DeliveryTariff
 {
     /**
      * @Type("integer")
-     * @var integer
+     * @var int|null
      */
     public $id;
     /**
      * @Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 }

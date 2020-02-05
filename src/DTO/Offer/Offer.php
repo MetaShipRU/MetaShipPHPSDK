@@ -29,14 +29,14 @@ class Offer
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("daysMin")
-     * @var int
+     * @var int|null
      */
     public $daysMin;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("daysMax")
-     * @var int
+     * @var int|null
      */
     public $daysMax;
 

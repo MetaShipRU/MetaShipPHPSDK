@@ -20,20 +20,20 @@ class GetDeliveriesRequest
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("deliveryName")
-     * @var string
+     * @var string|null
      */
     public $deliveryName;
 
     /**
      * @Serializer\Type("integer")
-     * @var string
+     * @var string|null
      */
     public $zip;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("pickupPointId")
-     * @var string
+     * @var string|null
      */
     public $pickupPointId;
 }

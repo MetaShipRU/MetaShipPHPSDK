@@ -20,21 +20,21 @@ final class ShipmentPatchRequest implements IRequest
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $op;
 
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $path;
 
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $value;
 

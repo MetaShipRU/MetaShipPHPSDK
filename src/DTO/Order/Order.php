@@ -92,76 +92,76 @@ class Order
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $id;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("trackNumber")
-     * @var string
+     * @var string|null
      */
     public $trackNumber;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("fulfillmentServiceNumber")
-     * @var string
+     * @var string|null
      */
     public $fulfillmentServiceNumber;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("shopNumber")
-     * @var string
+     * @var string|null
      */
     public $shopNumber;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("deliveryType")
-     * @var string
+     * @var string|null
      */
     public $deliveryType;
 
     /**
      * @Serializer\Type("float")
      * @Serializer\SerializedName("deliveryCost")
-     * @var float
+     * @var float|null
      */
     public $deliveryCost;
 
     /**
      * @Serializer\SerializedName("totalCost")
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $totalCost;
 
     /**
      * @Serializer\SerializedName("paymentSum")
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $paymentSum;
 
     /**
      * @Serializer\SerializedName("assessedValue")
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $assessedValue;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("statusName")
-     * @var string
+     * @var string|null
      */
     public $statusName;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $status;
 
@@ -175,34 +175,34 @@ class Order
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("expectedDeliveryDate")
-     * @var string
+     * @var string|null
      */
     public $expectedDeliveryDate;
 
     /**
      * @Serializer\SerializedName("timeFrom")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $timeFrom;
 
     /**
      * @Serializer\SerializedName("timeTo")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $timeTo;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $created;
 
     /**
      * @Serializer\SerializedName("externalCreated")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $externalCreated;
 
@@ -232,25 +232,25 @@ class Order
     public $statusHistory;
 
     /**
-     * @var float
+     * @var float|null
      * @Serializer\Type("float")
      */
     public $weight;
 
     /**
-     * @var int
+     * @var int|null
      * @Serializer\Type("integer")
      */
     public $width;
 
     /**
-     * @var int
+     * @var int|null
      * @Serializer\Type("integer")
      */
     public $length;
 
     /**
-     * @var int
+     * @var int|null
      * @Serializer\Type("integer")
      */
     public $height;

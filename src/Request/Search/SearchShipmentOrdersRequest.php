@@ -17,14 +17,14 @@ class SearchShipmentOrdersRequest
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     public $shop;
 
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     public $status;
 }

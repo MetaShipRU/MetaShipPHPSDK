@@ -15,23 +15,23 @@ class GetOrdersRequest implements IRequest
 
     /**
      * @Serializer\SerializedName("shopNumber")
-     * @var string
+     * @var string|null
      */
     public $shopNumber;
 
     /**
-     * @var string
+     * @var string|null
      */
     public $created;
 
     /**
-     * @var int
+     * @var int|null
      */
     public $start;
 
     /**
      * @Serializer\SerializedName("batchSize")
-     * @var int
+     * @var int|null
      */
     public $batchSize;
 }

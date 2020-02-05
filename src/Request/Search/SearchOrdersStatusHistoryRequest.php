@@ -19,14 +19,14 @@ class SearchOrdersStatusHistoryRequest
     /**
      * @Serializer\SerializedName("fromDateTime")
      *
-     * @var string
+     * @var string|null
      */
     public $fromDateTime;
 
     /**
      * @Serializer\SerializedName("toDateTime")
      *
-     * @var string
+     * @var string|null
      */
     public $toDateTime;
 }

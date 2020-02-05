@@ -12,13 +12,13 @@ class LabelResponse
 {
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $resource;
 }

@@ -20,14 +20,14 @@ class CreateIntakeRequest implements IRequest
     /**
      * @Serializer\Type("float")
      *
-     * @var float
+     * @var float|null
      */
     public $volume;
 
     /**
      * @Serializer\Type("float")
      *
-     * @var float
+     * @var float|null
      */
     public $weight;
 
@@ -35,14 +35,14 @@ class CreateIntakeRequest implements IRequest
      * @Serializer\SerializedName("seatsCount")
      * @Serializer\Type("integer")
      *
-     * @var int
+     * @var int|null
      */
     public $seatsCount;
 
     /**
      * @Serializer\SerializedName("scheduleId")
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $scheduleId;
 
@@ -50,27 +50,27 @@ class CreateIntakeRequest implements IRequest
      * @Serializer\SerializedName("deliveryName")
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     public $deliveryName;
 
     /**
      * @Serializer\SerializedName("shipmentDate")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $shipmentDate;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $comment;
 
     /**
      * @Serializer\SerializedName("shopServiceNumber")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $shopServiceNumber;
 }

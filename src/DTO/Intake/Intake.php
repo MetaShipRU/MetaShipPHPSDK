@@ -10,14 +10,14 @@ class Intake
 {
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $id;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("deliveryServiceNumber")
-     * @var int
+     * @var int|null
      */
     public $deliveryServiceNumber;
 
@@ -25,71 +25,71 @@ class Intake
      * @Serializer\Type("string")
      * @Serializer\SerializedName("shipmentDate")
      *
-     * @var string
+     * @var string|null
      */
     public $shipmentDate;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $volume;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $weight;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("seatsCount")
-     * @var int
+     * @var int|null
      */
     public $seatsCount;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $comment;
 
     /**
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\Warehouse\Warehouse")
      * @Serializer\SerializedName("warehouseFrom")
-     * @var Warehouse
+     * @var Warehouse|null
      */
     public $warehouseFrom;
 
     /**
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\Warehouse\Warehouse")
      * @Serializer\SerializedName("warehouseTo")
-     * @var Warehouse
+     * @var Warehouse|null
      */
     public $warehouseTo;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $created;
 
     /**
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\Schedule\Schedule")
-     * @var Schedule
+     * @var Schedule|null
      */
     public $schedule;
 
     /**
      * @Serializer\SerializedName("shopServiceNumber")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $shopServiceNumber;
 }

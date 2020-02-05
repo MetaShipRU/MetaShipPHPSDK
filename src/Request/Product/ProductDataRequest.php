@@ -18,14 +18,14 @@ final class ProductDataRequest implements IRequest
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $shop;
 
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $delivery;
 
@@ -33,7 +33,7 @@ final class ProductDataRequest implements IRequest
      * @Serializer\SerializedName("productId")
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $productId;
 

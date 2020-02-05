@@ -8,38 +8,38 @@ class Address
 {
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $city;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $street;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $house;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $region;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $zip;
 
     /**
      * @Serializer\SerializedName("fullAddress")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $fullAddress;
 }

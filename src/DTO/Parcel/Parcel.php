@@ -15,7 +15,7 @@ class Parcel
     /**
      * @Serializer\Type("integer")
      *
-     * @var int
+     * @var int|null
      */
     public $id;
 
@@ -23,7 +23,7 @@ class Parcel
      * @Serializer\Type("string")
      * @Serializer\SerializedName("deliveryServiceNumber")
      *
-     * @var string
+     * @var string|null
      */
     public $deliveryServiceNumber;
 
@@ -31,7 +31,7 @@ class Parcel
      * @Serializer\Type("string")
      * @Serializer\SerializedName("shipmentDate")
      *
-     * @var string
+     * @var string|null
      */
     public $shipmentDate;
 

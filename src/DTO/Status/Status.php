@@ -12,33 +12,33 @@ class Status
 {
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("uniqueName")
-     * @var string
+     * @var string|null
      */
     public $uniqueName;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $date;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $comment;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("deliveryServiceName")
-     * @var string
+     * @var string|null
      */
     public $deliveryServiceName;
 

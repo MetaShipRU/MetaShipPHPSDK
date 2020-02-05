@@ -20,14 +20,14 @@ class GetPickupPointsRequest
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("kladrId")
-     * @var string
+     * @var string|null
      */
     public $kladrId;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("deliveryName")
-     * @var string
+     * @var string|null
      */
     public $deliveryName;
 }

@@ -14,123 +14,123 @@ class PickupPoint
 {
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $id;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("cityId")
-     * @var int
+     * @var int|null
      */
     public $cityId;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("serviceNumber")
-     * @var string
+     * @var string|null
      */
     public $serviceNumber;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $lat;
 
     /**
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $lng;
 
     /**
      * @Serializer\Type("boolean")
      * @Serializer\SerializedName("isOnlyPrepaid")
-     * @var bool
+     * @var bool|null
      */
     public $isOnlyPrepaid;
 
     /**
      * @Serializer\Type("boolean")
      * @Serializer\SerializedName("isAcquiringAvailable")
-     * @var bool
+     * @var bool|null
      */
     public $isAcquiringAvailable;
 
     /**
      * @Serializer\Type("boolean")
      * @Serializer\SerializedName("isCashAllowed")
-     * @var bool
+     * @var bool|null
      */
     public $isCashAllowed;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $city;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $street;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $house;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("postCode")
-     * @var int
+     * @var int|null
      */
     public $postCode;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $region;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $comment;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("deliveryUniqueName")
-     * @var string
+     * @var string|null
      */
     public $deliveryUniqueName;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $type;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("workTimeRaw")
-     * @var string
+     * @var string|null
      */
     public $workTimeRaw;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $phone;
 
@@ -150,28 +150,28 @@ class PickupPoint
     /**
      * @Serializer\Type("float")
      * @Serializer\SerializedName("weightMax")
-     * @var float
+     * @var float|null
      */
     public $weightMax;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("widthMax")
-     * @var int
+     * @var int|null
      */
     public $widthMax;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("lengthMax")
-     * @var int
+     * @var int|null
      */
     public $lengthMax;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("heightMax")
-     * @var int
+     * @var int|null
      */
     public $heightMax;
 }

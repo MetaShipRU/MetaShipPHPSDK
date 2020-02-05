@@ -14,46 +14,46 @@ class Warehouse
 {
     /**
      * @Serializer\Type("integer")
-     * @var integer
+     * @var int|null
      */
     public $id;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("shopServiceNumber")
-     * @var string
+     * @var string|null
      */
     public $shopServiceNumber;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("serviceNumber")
-     * @var string
+     * @var string|null
      */
     public $serviceNumber;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $phone;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $created;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("contactPerson")
-     * @var string
+     * @var string|null
      */
     public $contactPerson;
 

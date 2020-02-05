@@ -14,20 +14,20 @@ class StatusItem
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("vendorCode")
-     * @var string
+     * @var string|null
      */
     public $vendorCode;
 
     /**
      * @Serializer\Type("integer")
-     * @var integer
+     * @var integer|null
      */
     public $quantity;
 
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("deliveredQuantiy")
-     * @var integer
+     * @var int|null
      */
     public $deliveredQuantity;
 }

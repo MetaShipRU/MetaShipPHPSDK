@@ -31,31 +31,31 @@ class SearchOrdersRequest
     public $trackNumber = [];
 
     /**
-     * @var string
+     * @var string|null
      */
     public $created;
 
     /**
      * @Serializer\SerializedName("shopServiceCode")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $shopServiceCode;
 
     /**
      * @Serializer\SerializedName("arrivedDate")
-     * @var string
+     * @var string|null
      */
     public $arrivedDate;
 
     /**
-     * @var int
+     * @var int|null
      */
     public $start;
 
     /**
      * @Serializer\SerializedName("batchSize")
-     * @var int
+     * @var int|null
      */
     public $batchSize;
 }

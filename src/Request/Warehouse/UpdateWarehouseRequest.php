@@ -15,14 +15,14 @@ class UpdateWarehouseRequest
     /**
      * @Serializer\SerializedName("shopServiceNumber")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $shopServiceNumber;
 
     /**
      * @Serializer\SerializedName("name")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 
@@ -35,14 +35,14 @@ class UpdateWarehouseRequest
     /**
      * @Serializer\SerializedName("contactPerson")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $contactPerson;
 
     /**
      * @Serializer\SerializedName("phone")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $phone;
 
@@ -56,7 +56,7 @@ class UpdateWarehouseRequest
     /**
      * @Serializer\SerializedName("deliveryName")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $deliveryName;
 

@@ -12,19 +12,19 @@ class Error
 {
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $message;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $code;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $property;
 }

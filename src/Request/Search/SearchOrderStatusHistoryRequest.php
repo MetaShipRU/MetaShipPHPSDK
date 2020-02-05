@@ -20,14 +20,14 @@ class SearchOrderStatusHistoryRequest
     /**
      * @Serializer\SerializedName("id")
      *
-     * @var int
+     * @var int|null
      */
     public $id;
 
     /**
      * @Serializer\SerializedName("shopNumber")
      *
-     * @var string
+     * @var string|null
      */
     public $shopNumber;
 

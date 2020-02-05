@@ -18,14 +18,14 @@ final class ShipmentDataRequest implements IRequest
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $shop;
 
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $delivery;
 
@@ -33,7 +33,7 @@ final class ShipmentDataRequest implements IRequest
      * @Serializer\SerializedName("shipmentId")
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $shipmentId;
 

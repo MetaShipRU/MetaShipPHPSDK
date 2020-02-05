@@ -13,13 +13,13 @@ class Delivery
 {
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $id;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 
@@ -27,7 +27,7 @@ class Delivery
      * @Serializer\Type("string")
      * @Serializer\SerializedName("uniqueName")
      *
-     * @var string
+     * @var string|null
      */
     public $uniqueName;
 

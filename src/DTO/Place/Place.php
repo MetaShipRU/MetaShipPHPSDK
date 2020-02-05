@@ -13,45 +13,45 @@ class Place
     /**
      * @Serializer\SerializedName("shopServiceNumber")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $shopServiceNumber;
 
     /**
      * @Serializer\SerializedName("deliveryServiceNumber")
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $deliveryServiceNumber;
 
     /**
      * @Serializer\SerializedName("assessedValue")
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $assessedValue;
 
     /**
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $weight;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $width;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $length;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $height;
 }

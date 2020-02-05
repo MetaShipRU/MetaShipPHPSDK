@@ -30,25 +30,25 @@ class SearchOrdersTransactionsRequest
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("dateTimeFrom")
-     * @var string
+     * @var string|null
      */
     public $dateTimeFrom;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("dateTimeTo")
-     * @var string
+     * @var string|null
      */
     public $dateTimeTo;
 
     /**
-     * @var int
+     * @var int|null
      */
     public $start;
 
     /**
      * @Serializer\SerializedName("batchSize")
-     * @var int
+     * @var int|null
      */
     public $batchSize;
 }

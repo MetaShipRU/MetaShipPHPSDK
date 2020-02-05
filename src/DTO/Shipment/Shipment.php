@@ -18,21 +18,21 @@ final class Shipment
     /**
      * @Serializer\Type("integer")
      *
-     * @var int
+     * @var int|null
      */
     private $id;
 
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $shop;
 
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $delivery;
 
@@ -40,14 +40,14 @@ final class Shipment
      * @Serializer\SerializedName("externalId")
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $externalId;
 
     /**
      * @Serializer\Type("string")
      *
-     * @var string
+     * @var string|null
      */
     private $status;
 

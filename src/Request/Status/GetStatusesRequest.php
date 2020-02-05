@@ -17,7 +17,7 @@ class GetStatusesRequest implements IRequest
     const PATH = '/v1/orders';
 
     /**
-     * @var int
+     * @var int|null
      */
     public $id;
 

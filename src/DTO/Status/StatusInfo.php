@@ -12,13 +12,13 @@ class StatusInfo
 {
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $code;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $description;
 }

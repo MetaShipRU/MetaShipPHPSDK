@@ -18,38 +18,38 @@ class Item
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("vendorCode")
-     * @var string
+     * @var string|null
      */
     public $vendorCode;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("vatCode")
-     * @var string
+     * @var string|null
      */
     public $vatCode;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $cost;
 
     /**
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $weight;
 
     /**
      * @Serializer\Type("integer")
-     * @var int
+     * @var int|null
      */
     public $quantity;
 }

@@ -12,19 +12,19 @@ class Photo
 {
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $original;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $s;
 
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $m;
 }

@@ -13,21 +13,21 @@ class Schedule
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("day")
-     * @var int
+     * @var string|null
      */
     public $day;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("timeFrom")
-     * @var string
+     * @var string|null
      */
     public $timeFrom;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("timeTo")
-     * @var string
+     * @var string|null
      */
     public $timeTo;
 }

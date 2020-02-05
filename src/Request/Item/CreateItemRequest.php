@@ -12,13 +12,13 @@ class CreateItemRequest
 {
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $cost;
 
@@ -31,20 +31,20 @@ class CreateItemRequest
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("vendorCode")
-     * @var string
+     * @var string|null
      */
     public $vendorCode;
 
     /**
      * @Serializer\Type("float")
-     * @var float
+     * @var float|null
      */
     public $weight;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("vatCode")
-     * @var string
+     * @var string|null
      */
     public $vatCode;
 

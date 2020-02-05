@@ -13,21 +13,21 @@ class CourierSchedule
 {
     /**
      * @Serializer\Type("string")
-     * @var string
+     * @var string|null
      */
     public $date;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("timeFrom")
-     * @var string
+     * @var string|null
      */
     public $timeFrom;
 
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("timeTo")
-     * @var string
+     * @var string|null
      */
     public $timeTo;
 }

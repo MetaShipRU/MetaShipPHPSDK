@@ -14,6 +14,7 @@ class StatusItem
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("vendorCode")
+     *
      * @var string|null
      */
     public $vendorCode;

@@ -20,7 +20,7 @@ class StatusItem
 
     /**
      * @Serializer\Type("integer")
-     * @var integer|null
+     * @var int|null
      */
     public $quantity;
 

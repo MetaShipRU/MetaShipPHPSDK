@@ -256,6 +256,13 @@ class Order
     public $height;
 
     /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("additionalServiceNumber")
+     * @var string|null
+     */
+    public $additionalServiceNumber;
+
+    /**
      * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Transaction\Transaction>")
      * @var Transaction[]
      */

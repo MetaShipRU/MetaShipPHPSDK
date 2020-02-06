@@ -54,4 +54,10 @@ class Place
      * @var int|null
      */
     public $height;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $comment;
 }

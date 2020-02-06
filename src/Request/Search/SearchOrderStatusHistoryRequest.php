@@ -31,4 +31,10 @@ class SearchOrderStatusHistoryRequest
      */
     public $shopNumber;
 
+    /**
+     * @Serializer\SerializedName("additionalServiceNumber")
+     *
+     * @var array
+     */
+    public $additionalServiceNumber = [];
 }

@@ -29,4 +29,11 @@ class SearchOrdersStatusHistoryRequest
      * @var string|null
      */
     public $toDateTime;
+
+    /**
+     * @Serializer\SerializedName("additionalServiceNumber")
+     *
+     * @var array
+     */
+    public $additionalServiceNumber = [];
 }

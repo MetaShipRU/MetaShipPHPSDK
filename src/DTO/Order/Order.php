@@ -60,6 +60,7 @@ class Order
     const STATUS_CANCELLED = 'cancelled';
 
     const STATUSES_TITLE = [
+        self::STATUS_CREATED => 'Заказ создан',
         self::STATUS_DRAFT => 'Заказ черновик',
         self::STATUS_PENDING => 'Заказ создан в информационной системе службы',
         self::STATUS_WAIT_DELIVERY => 'Заказ подготовлен к отправке',
@@ -87,7 +88,8 @@ class Order
         self::STATUS_CANCELLED => 'Заказ отменен',
         self::STATUS_DELIVERY_DATE_CHANGED => 'Дата заказа перенесена по просьбе службы',
         self::STATUS_RECIPIENT_DATE_CHANGED => 'Дата заказа перенесена по просьбе получателя',
-        self::STATUS_NOT_RECEIVED => 'Заказ не вручен'
+        self::STATUS_NOT_RECEIVED => 'Заказ не вручен',
+        self::STATUS_UNKNOWN => 'Неизвестный статус заказа'
     ];
 
     /**

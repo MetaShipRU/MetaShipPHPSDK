@@ -1,6 +1,6 @@
 <?php
 
-namespace MetaShipRU\MetaShipPHPSDK\Component\ResponseFormatter;
+namespace MetaShipRU\MetaShipPHPSDK\Response\Order;
 
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Order\Order;

@@ -267,4 +267,10 @@ class Order
      * @var Transaction[]
      */
     public $transactions;
+
+    /**
+     * @var float|null
+     * @Serializer\Type("float")
+     */
+    public $volume;
 }

@@ -6,6 +6,10 @@ use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Schedule\Schedule;
 use MetaShipRU\MetaShipPHPSDK\DTO\Warehouse\Warehouse;
 
+/**
+ * Class Intake
+ * @package MetaShipRU\MetaShipPHPSDK\DTO\Intake
+ */
 class Intake
 {
     /**

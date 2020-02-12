@@ -54,4 +54,11 @@ class CreateItemRequest
      * @var array
      */
     public $barcodes;
+
+    /**
+     * @Serializer\SerializedName("placeShopServiceNumber")
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $placeShopServiceNumber;
 }

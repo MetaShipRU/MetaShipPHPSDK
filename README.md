@@ -1,5 +1,9 @@
 # MetaShipPHPSDK
 
+## Песочница
+
+https://api.metaship.ru/doc/v1/
+
 ## Установка
 
 > Минимальные требования — PHP 7.2+.

@@ -77,4 +77,10 @@ class CreateRecipientRequest
      */
     public $address;
 
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("fioRaw")
+     * @var string|null
+     */
+    public $fioRaw;
 }

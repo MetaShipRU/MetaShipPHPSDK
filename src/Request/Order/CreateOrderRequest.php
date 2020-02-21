@@ -8,7 +8,6 @@ use MetaShipRU\MetaShipPHPSDK\Request\IRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Item\CreateItemRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Recipient\CreateRecipientRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
-
 /**
  * Class CreateOrderRequest
  * @package MetaShipRU\MetaShipPHPSDK\Request\Order

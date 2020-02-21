@@ -32,6 +32,13 @@ class SearchOrderStatusHistoryRequest
     public $shopNumber;
 
     /**
+     * @Serializer\SerializedName("trackNumber")
+     *
+     * @var string|null
+     */
+    public $trackNumber;
+
+    /**
      * @Serializer\SerializedName("additionalServiceNumber")
      *
      * @var array

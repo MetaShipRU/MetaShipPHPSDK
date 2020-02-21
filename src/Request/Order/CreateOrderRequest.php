@@ -239,4 +239,11 @@ class CreateOrderRequest implements IRequest
      * @var string|null
      */
     public $created;
+
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("trackNumber")
+     * @var string|null
+     */
+    public $trackNumber;
 }

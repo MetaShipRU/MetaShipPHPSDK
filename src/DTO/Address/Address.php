@@ -37,6 +37,12 @@ class Address
     public $zip;
 
     /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $kladrId;
+
+    /**
      * @Serializer\SerializedName("fullAddress")
      * @Serializer\Type("string")
      * @var string|null

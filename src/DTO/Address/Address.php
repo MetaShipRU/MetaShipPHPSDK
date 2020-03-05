@@ -28,6 +28,12 @@ class Address
      * @Serializer\Type("string")
      * @var string|null
      */
+    public $housing;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
     public $region;
 
     /**

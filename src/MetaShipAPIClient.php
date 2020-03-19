@@ -10,6 +10,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Delivery\GetDeliveriesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetAcceptanceRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetLabelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Intake\CreateIntakeRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Offer\OfferAllRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Offer\OfferRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\CreateBatchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\CreateOrderRequest;
@@ -495,6 +496,24 @@ class MetaShipAPIClient
                     $createBatchOrdersRequest->getMethod(),
                     $createBatchOrdersRequest->getPath(),
                     $body
+                )
+            ]
+        );
+    }
+
+    public function getAllOffers(OfferAllRequest $offerRequest): ResponseInterface
+    {
+        $params = $this->serializer->toArray($offerRequest);
+        return $this->client->request(
+            $offerRequest->getMethod(),
+            $offerRequest->getPath(),
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders(
+                    $offerRequest->getMethod(),
+                    $offerRequest->getPath(),
+                    '',
+                    http_build_query($params)
                 )
             ]
         );

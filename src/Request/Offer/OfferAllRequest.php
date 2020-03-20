@@ -29,7 +29,7 @@ class OfferAllRequest implements IRequest
      * @Serializer\SerializedName("fullAddressTo")
      * @var string|null
      */
-    private $fullAddressTo;
+    public $fullAddressTo;
 
     /**
      * @Serializer\Type("float")

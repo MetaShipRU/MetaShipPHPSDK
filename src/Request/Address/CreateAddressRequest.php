@@ -71,4 +71,10 @@ class CreateAddressRequest
      * @var string|null
      */
     public $fullAddress;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $region;
 }

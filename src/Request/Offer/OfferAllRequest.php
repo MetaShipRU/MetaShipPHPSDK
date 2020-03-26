@@ -72,4 +72,10 @@ class OfferAllRequest implements IRequest
      * @var string|null
      */
     public $distance;
+
+    /**
+     * @Serializer\Type("float")
+     * @var float|null
+     */
+    public $radius;
 }

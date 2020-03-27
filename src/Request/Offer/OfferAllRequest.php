@@ -78,4 +78,11 @@ class OfferAllRequest implements IRequest
      * @var float|null
      */
     public $radius;
+
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("deliveryUniqueName")
+     * @var string|null
+     */
+    public $deliveryUniqueName;
 }

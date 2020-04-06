@@ -180,4 +180,11 @@ class PickupPoint
      * @var int|null
      */
     public $heightMax;
+
+    /**
+     * @Serializer\Type("integer")
+     * @Serializer\SerializedName("distanceToPickupPoint")
+     * @var int|null
+     */
+    public $distanceToPickupPoint;
 }

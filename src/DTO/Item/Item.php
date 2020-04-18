@@ -52,4 +52,10 @@ class Item
      * @var int|null
      */
     public $quantity;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $comment;
 }

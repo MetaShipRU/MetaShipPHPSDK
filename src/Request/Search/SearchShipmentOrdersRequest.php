@@ -7,6 +7,10 @@ namespace MetaShipRU\MetaShipPHPSDK\Request\Search;
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
 
+/**
+ * Class SearchShipmentOrdersRequest
+ * @package MetaShipRU\MetaShipPHPSDK\Request\Search
+ */
 class SearchShipmentOrdersRequest
 {
     use RequestCore;

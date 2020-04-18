@@ -61,4 +61,10 @@ class CreateItemRequest
      * @var string|null
      */
     public $placeShopServiceNumber;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $comment;
 }

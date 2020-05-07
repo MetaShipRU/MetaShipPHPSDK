@@ -122,7 +122,7 @@ class Order
     /**
      * @Serializer\Type("integer")
      * @Serializer\SerializedName("warehouseId")
-     * @var string|null
+     * @var integer|null
      */
     public $warehouseId;
 

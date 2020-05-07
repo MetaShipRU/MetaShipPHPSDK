@@ -120,6 +120,13 @@ class Order
     public $shopNumber;
 
     /**
+     * @Serializer\Type("integer")
+     * @Serializer\SerializedName("warehouseId")
+     * @var string|null
+     */
+    public $warehouseId;
+
+    /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("deliveryType")
      * @var string|null

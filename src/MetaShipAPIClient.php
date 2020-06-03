@@ -23,8 +23,6 @@ use MetaShipRU\MetaShipPHPSDK\Request\Partner\PartnerDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Product\ProductDataRequest;
-use MetaShipRU\MetaShipPHPSDK\Request\Partner\PartnerDataRequest;
-use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrderStatusHistoryBatchRequest;

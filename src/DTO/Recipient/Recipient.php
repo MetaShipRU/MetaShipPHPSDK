@@ -33,6 +33,18 @@ class Recipient
     public $lastName;
 
     /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $email;
+
+    /**
+     * @Serializer\Type("integer")
+     * @var int|null
+     */
+    public $phone;
+
+    /**
      * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\Address\Address")
      * @var Address|null
      */

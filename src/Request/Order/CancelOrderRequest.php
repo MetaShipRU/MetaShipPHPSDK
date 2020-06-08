@@ -15,7 +15,7 @@ class CancelOrderRequest
      * @Serializer\SerializedName("shopNumber")
      * @var string|null
      */
-    public $shopNubmer;
+    public $shopNumber;
 
     /**
      * @Serializer\Type("string")

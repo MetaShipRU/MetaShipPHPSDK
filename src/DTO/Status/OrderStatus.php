@@ -11,6 +11,12 @@ use JMS\Serializer\Annotation as Serializer;
 class OrderStatus
 {
     /**
+     * @Serializer\Type("integer")
+     * @var int|null
+     */
+    public $id;
+
+    /**
      * @Serializer\Type("string")
      * @var string|null
      */

@@ -32,8 +32,10 @@ use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersTransactionsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchShipmentOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchShipmentsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchWarehousesRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentByExternalIdPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentPatchRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderByExternalIdPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesInfoRequest;
@@ -476,6 +478,42 @@ class MetaShipAPIClient
     {
         $method = $request->getMethod();
         $path = $request->getPath($id);
+        $body = $this->serializer->serialize($request, self::FORMAT);
+
+        return $this->client->request(
+            $method,
+            $path,
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($method, $path, $body),
+            ]
+        );
+    }
+
+    public function updateShipmentByExternalId(
+        string $externalId,
+        ShipmentByExternalIdPatchRequest $request
+    ): ResponseInterface {
+        $method = $request->getMethod();
+        $path = $request->getPath($externalId);
+        $body = $this->serializer->serialize($request, self::FORMAT);
+
+        return $this->client->request(
+            $method,
+            $path,
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($method, $path, $body),
+            ]
+        );
+    }
+
+    public function updateShipmentOrderByExternalId(
+        string $externalId,
+        ShipmentOrderByExternalIdPatchRequest $request
+    ): ResponseInterface {
+        $method = $request->getMethod();
+        $path = $request->getPath($externalId);
         $body = $this->serializer->serialize($request, self::FORMAT);
 
         return $this->client->request(

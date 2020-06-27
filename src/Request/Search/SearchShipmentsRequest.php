@@ -26,5 +26,12 @@ class SearchShipmentsRequest
      *
      * @var string|null
      */
+    public $type;
+
+    /**
+     * @Serializer\Type("string")
+     *
+     * @var string|null
+     */
     public $status;
 }

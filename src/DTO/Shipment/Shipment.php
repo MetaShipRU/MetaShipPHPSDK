@@ -59,6 +59,13 @@ final class Shipment
     private $statuses;
 
     /**
+     * @Serializer\Type("string")
+     *
+     * @var string|null
+     */
+    private $type;
+
+    /**
      * @Serializer\Type("array")
      *
      * @var array
@@ -88,6 +95,11 @@ final class Shipment
     public function getStatus(): string
     {
         return $this->status;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
     }
 
     /**

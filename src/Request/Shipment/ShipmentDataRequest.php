@@ -38,6 +38,13 @@ final class ShipmentDataRequest implements IRequest
     private $shipmentId;
 
     /**
+     * @Serializer\Type("string")
+     *
+     * @var string|null
+     */
+    private $type;
+
+    /**
      * @var array
      */
     private $data;
@@ -55,6 +62,11 @@ final class ShipmentDataRequest implements IRequest
     public function getShipmentId(): string
     {
         return $this->shipmentId;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
     }
 
     public function getData(): array

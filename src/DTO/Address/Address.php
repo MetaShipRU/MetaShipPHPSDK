@@ -62,3 +62,4 @@ class Address
      */
     public $fullAddress;
 }
+

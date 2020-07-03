@@ -4,6 +4,7 @@
 namespace MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder;
 
 use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
+use JMS\Serializer\Annotation as Serializer;
 
 class ShipmentOrderByExternalIdPatchRequest
 {

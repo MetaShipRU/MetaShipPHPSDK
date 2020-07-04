@@ -494,16 +494,15 @@ class MetaShipAPIClient
         string $externalId,
         ShipmentByExternalIdPatchRequest $request
     ): ResponseInterface {
-        $method = $request->getMethod();
-        $path = $request->getPath($externalId);
         $body = $this->serializer->serialize($request, self::FORMAT);
+        $pathForSign = $request->getPath(urlencode($externalId));
 
         return $this->client->request(
-            $method,
-            $path,
+            $request->getMethod(),
+            $request->getPath($externalId),
             [
                 'body' => $body,
-                'headers' => $this->getHeaders($method, $path, $body),
+                'headers' => $this->getHeaders($request->getMethod(), $pathForSign, $body),
             ]
         );
     }
@@ -512,16 +511,15 @@ class MetaShipAPIClient
         string $externalId,
         ShipmentOrderByExternalIdPatchRequest $request
     ): ResponseInterface {
-        $method = $request->getMethod();
-        $path = $request->getPath($externalId);
         $body = $this->serializer->serialize($request, self::FORMAT);
+        $pathForSign = $request->getPath(urlencode($externalId));
 
         return $this->client->request(
-            $method,
-            $path,
+            $request->getMethod(),
+            $request->getPath($externalId),
             [
                 'body' => $body,
-                'headers' => $this->getHeaders($method, $path, $body),
+                'headers' => $this->getHeaders($request->getMethod(), $pathForSign, $body),
             ]
         );
     }

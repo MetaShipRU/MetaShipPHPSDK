@@ -72,5 +72,5 @@ class CreateItemRequest
      * @Serializer\Type("string")
      * @var string|null
      */
-    private $marking;
+    public $marking;
 }

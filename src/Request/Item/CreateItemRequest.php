@@ -67,4 +67,10 @@ class CreateItemRequest
      * @var string|null
      */
     public $comment;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    private $marking;
 }

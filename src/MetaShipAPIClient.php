@@ -43,7 +43,6 @@ use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateBatchWarehousesRequest;
 use Psr\Http\Message\ResponseInterface;
-
 /**
  * Class MetaShipAPIClient
  * @package MetaShipRU\MetaShipPHPSDK

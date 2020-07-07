@@ -19,6 +19,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Order\DeleteOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\UpdateOrderRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Package\CreatePackageRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Parcel\CreateParcelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Partner\PartnerDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
@@ -382,6 +383,22 @@ class MetaShipAPIClient
                     $createIntakeRequest->getPath(),
                     $body)
             ]);
+    }
+
+    public function createPackage(CreatePackageRequest $createPackageRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($createPackageRequest, 'json');
+        return $this->client->post(
+            $createPackageRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders(
+                    $createPackageRequest->getMethod(),
+                    $createPackageRequest->getPath(),
+                    $body
+                )
+            ]
+        );
     }
 
     public function getWarehouses(GetWarehousesRequest $getWarehousesRequest): ResponseInterface

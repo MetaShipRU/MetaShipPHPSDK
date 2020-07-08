@@ -20,6 +20,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\UpdateOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Package\CreatePackageRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Package\GetPackagesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Parcel\CreateParcelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Partner\PartnerDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
@@ -410,6 +411,21 @@ class MetaShipAPIClient
             [
                 'body' => $body,
                 'headers' => $this->getHeaders($createPackageRequest->getMethod(), $path, $body)
+            ]
+        );
+    }
+
+    public function getPackages(GetPackagesRequest $getPackagesRequest): ResponseInterface
+    {
+        return $this->client->request(
+            $getPackagesRequest->getMethod(),
+            $getPackagesRequest->getPath(),
+            [
+                'headers' => $this->getHeaders(
+                    $getPackagesRequest->getMethod(),
+                    $getPackagesRequest->getPath(),
+                    ''
+                ),
             ]
         );
     }

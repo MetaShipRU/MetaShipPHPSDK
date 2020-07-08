@@ -401,6 +401,19 @@ class MetaShipAPIClient
         );
     }
 
+    public function updatePackage(int $id, CreatePackageRequest $createPackageRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($createPackageRequest, 'json');
+        $path = $createPackageRequest->getPath() . '/' . $id;
+        return $this->client->put(
+            $path,
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($createPackageRequest->getMethod(), $path, $body)
+            ]
+        );
+    }
+
     public function getWarehouses(GetWarehousesRequest $getWarehousesRequest): ResponseInterface
     {
         $params = $this->serializer->toArray($getWarehousesRequest);

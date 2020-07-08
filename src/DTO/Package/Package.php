@@ -11,18 +11,21 @@ class Package
 {
     /**
      * @var integer
+     * @Serializer\Type("integer")
      * @Serializer\SerializedName("id")
      */
     public $id;
 
     /**
      * @var string
+     * @Serializer\Type("string")
      * @Serializer\SerializedName("externalId")
      */
     public $externalId;
 
     /**
      * @var string
+     * @Serializer\Type("string")
      * @Serializer\SerializedName("barcode")
      */
     public $barcode;

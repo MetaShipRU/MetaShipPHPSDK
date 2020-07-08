@@ -5,7 +5,6 @@ namespace MetaShipRU\MetaShipPHPSDK\Request\Package;
 use MetaShipRU\MetaShipPHPSDK\Request\IRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
 use JMS\Serializer\Annotation as Serializer;
-
 /**
  * Class CreatePackageRequest
  * @package MetaShipRU\MetaShipPHPSDK\Request\Package

@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
+use MetaShipRU\MetaShipPHPSDK\Request\City\GetCitiesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Delivery\GetDeliveriesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetAcceptanceRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetLabelRequest;
@@ -633,6 +634,24 @@ class MetaShipAPIClient
                 'headers' => $this->getHeaders(
                     $offerRequest->getMethod(),
                     $offerRequest->getPath(),
+                    '',
+                    http_build_query($params)
+                )
+            ]
+        );
+    }
+
+    public function getCities(GetCitiesRequest $getCitiesRequest): ResponseInterface
+    {
+        $params = $this->serializer->toArray($getCitiesRequest);
+        return $this->client->request(
+            $getCitiesRequest->getMethod(),
+            $getCitiesRequest->getPath(),
+            [
+                'query' => $params,
+                'headers' => $this->getHeaders(
+                    $getCitiesRequest->getMethod(),
+                    $getCitiesRequest->getPath(),
                     '',
                     http_build_query($params)
                 )

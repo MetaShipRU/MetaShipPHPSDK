@@ -21,6 +21,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Order\GetOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\UpdateOrderRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Package\CreatePackageRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Package\GetPackagesRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Package\UpdatePackageRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Parcel\CreateParcelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Partner\PartnerDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
@@ -402,15 +403,15 @@ class MetaShipAPIClient
         );
     }
 
-    public function updatePackage(int $id, CreatePackageRequest $createPackageRequest): ResponseInterface
+    public function updatePackage(UpdatePackageRequest $updatePackageRequest): ResponseInterface
     {
-        $body = $this->serializer->serialize($createPackageRequest, 'json');
-        $path = $createPackageRequest->getPath() . '/' . $id;
+        $body = $this->serializer->serialize($updatePackageRequest, 'json');
+        $path = $updatePackageRequest->getPath() . '/' . $updatePackageRequest->id;
         return $this->client->put(
             $path,
             [
                 'body' => $body,
-                'headers' => $this->getHeaders($createPackageRequest->getMethod(), $path, $body)
+                'headers' => $this->getHeaders($updatePackageRequest->getMethod(), $path, $body)
             ]
         );
     }

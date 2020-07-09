@@ -43,4 +43,11 @@ class CreatePackageRequest implements IRequest
      * @var string
      */
     public $barcode;
+
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("status")
+     * @var string
+     */
+    public $status;
 }

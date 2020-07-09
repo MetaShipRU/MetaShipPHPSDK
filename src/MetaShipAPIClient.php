@@ -43,6 +43,9 @@ use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesInfoRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Stock\CreateStockRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Stock\GetStocksRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Stock\UpdateStockRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateBatchWarehousesRequest;
 use Psr\Http\Message\ResponseInterface;
@@ -425,6 +428,50 @@ class MetaShipAPIClient
                 'headers' => $this->getHeaders(
                     $getPackagesRequest->getMethod(),
                     $getPackagesRequest->getPath(),
+                    ''
+                ),
+            ]
+        );
+    }
+
+    public function createStock(CreateStockRequest $createStockRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($createStockRequest, 'json');
+        return $this->client->post(
+            $createStockRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders(
+                    $createStockRequest->getMethod(),
+                    $createStockRequest->getPath(),
+                    $body
+                )
+            ]
+        );
+    }
+
+    public function updateStock(UpdateStockRequest $updateStockRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($updateStockRequest, 'json');
+        $path = $updateStockRequest->getPath() . '/' . $updateStockRequest->id;
+        return $this->client->put(
+            $path,
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($updateStockRequest->getMethod(), $path, $body)
+            ]
+        );
+    }
+
+    public function getStocks(GetStocksRequest $getStocksRequest): ResponseInterface
+    {
+        return $this->client->request(
+            $getStocksRequest->getMethod(),
+            $getStocksRequest->getPath(),
+            [
+                'headers' => $this->getHeaders(
+                    $getStocksRequest->getMethod(),
+                    $getStocksRequest->getPath(),
                     ''
                 ),
             ]

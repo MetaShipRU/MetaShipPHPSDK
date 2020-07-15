@@ -38,6 +38,12 @@ final class ShipmentByExternalIdPatchRequest implements IRequest
      */
     private $value;
 
+    /**
+     * @Serializer\Type("array")
+     * @var array
+     */
+    private $data;
+
     public function getPath(string $id = null): string
     {
         return null === $id

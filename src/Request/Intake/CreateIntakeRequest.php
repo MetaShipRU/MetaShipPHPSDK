@@ -5,6 +5,7 @@ namespace MetaShipRU\MetaShipPHPSDK\Request\Intake;
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\Request\IRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
+use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\CreateWarehouseRequest;
 
 /**
  * Class CreateIntakeRequest
@@ -73,4 +74,11 @@ class CreateIntakeRequest implements IRequest
      * @var string|null
      */
     public $shopServiceNumber;
+
+    /**
+     * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\Request\Warehouse\CreateWarehouseRequest")
+     * @Serializer\SerializedName("warehouseFrom")
+     * @var CreateWarehouseRequest|null
+     */
+    public $warehouseFrom;
 }

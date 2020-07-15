@@ -6,7 +6,6 @@ use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\Request\IRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\CreateWarehouseRequest;
-
 /**
  * Class CreateIntakeRequest
  * @package MetaShipRU\MetaShipPHPSDK\Request\Intake

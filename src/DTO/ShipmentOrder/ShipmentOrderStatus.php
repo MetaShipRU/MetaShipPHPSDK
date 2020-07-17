@@ -39,6 +39,12 @@ final class ShipmentOrderStatus
      */
     private $comment;
 
+    /**
+     * @Serializer\Type("array")
+     * @var array|null
+     */
+    private $data;
+
     public function getId(): string
     {
         return $this->id;
@@ -62,5 +68,10 @@ final class ShipmentOrderStatus
     public function getComment(): ?string
     {
         return $this->comment;
+    }
+
+    public function getData(): ?array
+    {
+        return $this->data;
     }
 }

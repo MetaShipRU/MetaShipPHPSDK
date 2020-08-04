@@ -52,4 +52,11 @@ class CreateWarehouseRequest
      * @var string
      */
     public $shopServiceNumber;
+
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("deliveryName")
+     * @var string|null
+     */
+    public $deliveryName;
 }

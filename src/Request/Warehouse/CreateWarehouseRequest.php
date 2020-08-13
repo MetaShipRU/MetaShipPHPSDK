@@ -59,4 +59,22 @@ class CreateWarehouseRequest
      * @var string|null
      */
     public $deliveryName;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $inn;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $incorporation;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $email;
 }

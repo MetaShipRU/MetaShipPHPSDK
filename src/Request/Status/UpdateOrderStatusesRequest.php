@@ -2,7 +2,9 @@
 
 namespace MetaShipRU\MetaShipPHPSDK\Request\Status;
 
+use MetaShipRU\MetaShipPHPSDK\DTO\Status\OrderStatusUpdate;
 use MetaShipRU\MetaShipPHPSDK\Request\RequestCore;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Class UpdateOrderStatusesRequest
@@ -14,4 +16,12 @@ class UpdateOrderStatusesRequest
 
     const METHOD = 'PUT';
     const PATH = '/v1/statuses/update/batch';
+
+    /**
+     * @var OrderStatusUpdate[]
+     *
+     * @Serializer\Type("array<MetaShipRU\MetaShipPHPSDK\DTO\Status\OrderStatusUpdate>")
+     * @Serializer\SerializedName("orders")
+     */
+    public $orders;
 }

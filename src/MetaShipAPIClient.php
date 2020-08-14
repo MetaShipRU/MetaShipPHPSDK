@@ -275,6 +275,7 @@ class MetaShipAPIClient
     ): ResponseInterface {
         $body = $this->serializer->serialize($updateOrderStatusesRequest, 'json');
         $path = $updateOrderStatusesRequest->getPath();
+
         return $this->client->put(
             $path,
             [

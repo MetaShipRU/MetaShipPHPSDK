@@ -50,6 +50,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Stock\GetStocksRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Stock\UpdateStockRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\GetWarehousesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\UpdateBatchWarehousesRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Warehouse\WarehouseRequest;
 use Psr\Http\Message\ResponseInterface;
 /**
  * Class MetaShipAPIClient
@@ -715,6 +716,22 @@ class MetaShipAPIClient
                     $getCitiesRequest->getPath(),
                     '',
                     http_build_query($params)
+                )
+            ]
+        );
+    }
+
+    public function createWarehouse(WarehouseRequest $createWarehouseRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($createWarehouseRequest, 'json');
+        return $this->client->post(
+            $createWarehouseRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders(
+                    $createWarehouseRequest->getMethod(),
+                    $createWarehouseRequest->getPath(),
+                    $body
                 )
             ]
         );

@@ -3,6 +3,7 @@
 namespace MetaShipRU\MetaShipPHPSDK\Response\Warehouse;
 
 use MetaShipRU\MetaShipPHPSDK\DTO\Warehouse\Warehouse;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Class WarehouseResponse

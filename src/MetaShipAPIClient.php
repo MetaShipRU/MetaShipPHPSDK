@@ -44,6 +44,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesInfoRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Status\UpdateOrderStatusesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Stock\CreateStockRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Stock\GetStocksRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Stock\UpdateStockRequest;
@@ -267,6 +268,19 @@ class MetaShipAPIClient
             [
                 'headers' => $this->getHeaders($getStatusesRequest->getMethod(), $path),
             ]);
+    }
+
+    public function updateOrderStatusesRequest(UpdateOrderStatusesRequest $updateOrderStatusesRequest
+    ): ResponseInterface {
+        $body = $this->serializer->serialize($updateOrderStatusesRequest, 'json');
+        $path = $updateOrderStatusesRequest->getPath();
+        return $this->client->put(
+            $path,
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($updateOrderStatusesRequest->getMethod(), $path, $body)
+            ]
+        );
     }
 
     public function getOrder(GetOrderRequest $getOrderRequest): ResponseInterface

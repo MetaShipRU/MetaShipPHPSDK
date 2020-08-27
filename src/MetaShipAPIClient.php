@@ -25,6 +25,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Package\GetPackagesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Package\UpdatePackageRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Parcel\CreateParcelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Partner\PartnerDataRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Product\ProductDataRequest;
@@ -161,6 +162,17 @@ class MetaShipAPIClient
                     '',
                     http_build_query($params))
             ]);
+    }
+
+    public function getPickupPoint(GetPickupPointRequest $getPickupPointRequest): ResponseInterface
+    {
+        $path = $getPickupPointRequest->getPath() . '/' . $getPickupPointRequest->id;
+        return $this->client->get(
+            $path,
+            [
+                'headers' => $this->getHeaders($getPickupPointRequest->getMethod(), $path)
+            ]
+        );
     }
 
     public function createParcel(CreateParcelRequest $createParcelRequest): ResponseInterface

@@ -8,9 +8,9 @@ use Psr\Http\Message\ResponseInterface;
 
 class PickupPointResponseFormatter
 {
-    public static function format(ResponseInterface $orderResponse): PickupPoint
+    public static function format(ResponseInterface $pickupPointResponse): PickupPoint
     {
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize((string)$orderResponse->getBody(), PickupPoint::class, 'json');
+        return $serializer->deserialize((string)$pickupPointResponse->getBody(), PickupPoint::class, 'json');
     }
 }

@@ -187,4 +187,10 @@ class PickupPoint
      * @var int|null
      */
     public $distanceToPickupPoint;
+
+    /**
+     * @Serializer\Type("string")
+     * @var string|null
+     */
+    public $status;
 }

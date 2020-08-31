@@ -621,7 +621,7 @@ class MetaShipAPIClient
 
         return $this->client->request(
             $request->getMethod(),
-            $request->getPath($externalId),
+            $request->getPath(urlencode($externalId)),
             [
                 'body' => $body,
                 'headers' => $this->getHeaders($request->getMethod(), $pathForSign, $body),

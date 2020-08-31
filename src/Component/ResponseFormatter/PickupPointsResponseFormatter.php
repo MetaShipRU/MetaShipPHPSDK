@@ -1,8 +1,6 @@
 <?php
 
-
 namespace MetaShipRU\MetaShipPHPSDK\Component\ResponseFormatter;
-
 
 use JMS\Serializer\SerializerBuilder;
 use MetaShipRU\MetaShipPHPSDK\Response\PickupPoint\PickupPointsResponse;

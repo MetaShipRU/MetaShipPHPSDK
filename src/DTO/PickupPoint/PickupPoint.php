@@ -2,6 +2,7 @@
 
 namespace MetaShipRU\MetaShipPHPSDK\DTO\PickupPoint;
 
+use DateTimeImmutable;
 use JMS\Serializer\Annotation as Serializer;
 use MetaShipRU\MetaShipPHPSDK\DTO\Photo\Photo;
 use MetaShipRU\MetaShipPHPSDK\DTO\Schedule\Schedule;
@@ -193,4 +194,18 @@ class PickupPoint
      * @var string|null
      */
     public $status;
+
+    /**
+     * @Serializer\Type("boolean")
+     * @Serializer\SerializedName("selfPickUp")
+     * @var boolean
+     */
+    public $selfPickUp;
+
+    /**
+     * @Serializer\Type("DateTimeImmutable<'Y-m-d H:i:s'>")
+     * @Serializer\SerializedName("updatedAt")
+     * @var DateTimeImmutable
+     */
+    public $updatedAt;
 }

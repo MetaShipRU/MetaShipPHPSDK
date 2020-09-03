@@ -208,4 +208,11 @@ class PickupPoint
      * @var DateTimeImmutable
      */
     public $updatedAt;
+
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("kladrId")
+     * @var string
+     */
+    public $kladrId;
 }

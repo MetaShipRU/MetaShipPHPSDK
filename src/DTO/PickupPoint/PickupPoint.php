@@ -203,7 +203,7 @@ class PickupPoint
     public $selfPickUp;
 
     /**
-     * @Serializer\Type("DateTimeImmutable<'Y-m-d H:i:s'>")
+     * @Serializer\Type("DateTimeImmutable<'Y-m-d H:m:s'>, null")
      * @Serializer\SerializedName("updatedAt")
      * @var DateTimeImmutable
      */

@@ -19,7 +19,7 @@ require_once '../vendor/autoload.php';
 
 \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');
 
-$client = new MetaShipAPIClient('URL','api-key', 'api-secet');
+$client = new MetaShipAPIClient('URL','api-key', 'api-secret');
 ```
 
 ### Получение вариантов доставки

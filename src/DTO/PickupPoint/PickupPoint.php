@@ -222,4 +222,11 @@ class PickupPoint
      * @var string|null
      */
     public $paymentSumMax;
+
+    /**
+     * @Serializer\Type("boolean")
+     * @Serializer\SerializedName("isCashOnDeliveryAllowed")
+     * @var bool|null
+     */
+    public $isCashOnDeliveryAllowed;
 }

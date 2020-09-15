@@ -212,7 +212,7 @@ class PickupPoint
     /**
      * @Serializer\Type("string")
      * @Serializer\SerializedName("kladrId")
-     * @var string
+     * @var string|null
      */
     public $kladrId;
 

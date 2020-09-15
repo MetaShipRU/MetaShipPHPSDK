@@ -215,4 +215,11 @@ class PickupPoint
      * @var string
      */
     public $kladrId;
+
+    /**
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("paymentSumMax")
+     * @var string|null
+     */
+    public $paymentSumMax;
 }

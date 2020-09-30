@@ -282,4 +282,11 @@ class Order
      * @Serializer\Type("float")
      */
     public $volume;
+
+    /**
+     * @var string
+     * @Serializer\Type("string")
+     * @Serializer\SerializedName("shopServiceCode")
+     */
+    public $shopServiceCode;
 }

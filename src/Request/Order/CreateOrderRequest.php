@@ -252,4 +252,9 @@ class CreateOrderRequest implements IRequest
      * @var string|null
      */
     public $stockId;
+
+    /**
+     * @Serializer\Type("array")
+     */
+    public $data = [];
 }

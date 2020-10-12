@@ -289,4 +289,9 @@ class Order
      * @Serializer\SerializedName("shopServiceCode")
      */
     public $shopServiceCode;
+
+    /**
+     * @Serializer\Type("array")
+     */
+    public $data = [];
 }

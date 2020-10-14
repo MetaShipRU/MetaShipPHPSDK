@@ -293,5 +293,5 @@ class Order
     /**
      * @Serializer\Type("array")
      */
-    public $data = [];
+    public $extra = [];
 }

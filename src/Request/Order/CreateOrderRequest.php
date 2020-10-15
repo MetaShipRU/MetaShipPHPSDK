@@ -256,5 +256,5 @@ class CreateOrderRequest implements IRequest
     /**
      * @Serializer\Type("array")
      */
-    public $data = [];
+    public $extra = [];
 }

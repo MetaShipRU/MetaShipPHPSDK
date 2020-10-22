@@ -42,6 +42,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderByExternalIdPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderDataRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderGetByExternalIdRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesInfoRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
@@ -241,6 +242,21 @@ class MetaShipAPIClient
                 'headers' => $this->getHeaders($request->getMethod(), $request->getPath(), $body),
             ]
         );
+    }
+
+    public function getShipmentOrderByExternalId(ShipmentOrderGetByExternalIdRequest $request): ResponseInterface
+    {
+        $path = sprintf('%s/%s', $request->getPath(), $request->id);
+
+        return
+            $this->client->request(
+                $request->getMethod(),
+                $path,
+                [
+                    'headers' => $this->getHeaders($request->getMethod(), $path),
+                ]
+            )
+        ;
     }
 
     public function getAcceptance(GetAcceptanceRequest $getAcceptanceRequest): ResponseInterface

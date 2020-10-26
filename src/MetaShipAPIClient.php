@@ -43,6 +43,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderByExternalIdPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderGetByExternalIdRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderOrderInStatusRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesInfoRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
@@ -229,6 +230,19 @@ class MetaShipAPIClient
                 'headers' => $this->getHeaders($request->getMethod(), $request->getPath(), $body),
             ]
         );
+    }
+
+    public function getShipmentOrderInStatus(ShipmentOrderOrderInStatusRequest $request): ResponseInterface
+    {
+        return
+            $this->client->request(
+                $request->getMethod(),
+                $request->getPath(),
+                [
+                    'headers' => $this->getHeaders($request->getMethod(), $request->getPath()),
+                ]
+            )
+        ;
     }
 
     public function createShipmentOrder(ShipmentOrderDataRequest $request): ResponseInterface

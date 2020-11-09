@@ -11,6 +11,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Delivery\GetDeliveriesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetAcceptanceRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetLabelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Intake\CreateIntakeRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\IRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Offer\OfferAllRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Offer\OfferRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\CancelBatchOrdersRequest;
@@ -103,6 +104,21 @@ class MetaShipAPIClient
         $this->options = $options;
         $this->serializer = SerializerBuilder::create()
             ->build();
+    }
+
+    public function patch(IRequest $request): ResponseInterface
+    {
+        $body = $this->serializer->serialize($request, 'json');
+
+        $headers = $this->getHeaders($request->getMethod(), $request->getPath(), $body);
+
+        return $this->client->patch(
+            $request->getPath(),
+            [
+                'body' => $body,
+                'headers' => $headers
+            ]
+        );
     }
 
     public function getOffers(OfferRequest $offerRequest): ResponseInterface

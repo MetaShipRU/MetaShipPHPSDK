@@ -29,6 +29,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Partner\PartnerDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceDataRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Price\CreateBatchPricesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Product\ProductDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
@@ -234,6 +235,22 @@ class MetaShipAPIClient
             'body' => $body,
             'headers' => $this->getHeaders($request->getMethod(), $request->getPath(), $body),
         ]);
+    }
+
+    public function createBatchPrices(CreateBatchPricesRequest $createBatchPricesRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($createBatchPricesRequest, 'json');
+        return $this->client->post(
+            $createBatchPricesRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders(
+                    $createBatchPricesRequest->getMethod(),
+                    $createBatchPricesRequest->getPath(),
+                    $body
+                )
+            ]
+        );
     }
 
     public function createShipment(ShipmentDataRequest $request): ResponseInterface

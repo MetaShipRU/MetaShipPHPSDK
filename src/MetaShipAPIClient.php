@@ -4,6 +4,7 @@ namespace MetaShipRU\MetaShipPHPSDK;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Promise\PromiseInterface;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use MetaShipRU\MetaShipPHPSDK\Request\City\GetCitiesRequest;
@@ -140,6 +141,16 @@ class MetaShipAPIClient
     {
         $body = $this->serializer->serialize($createOrderRequest, 'json');
         return $this->client->post($createOrderRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($createOrderRequest->getMethod(), $createOrderRequest->getPath(), $body)
+            ]);
+    }
+
+    public function createOrderAsync(CreateOrderRequest $createOrderRequest): PromiseInterface
+    {
+        $body = $this->serializer->serialize($createOrderRequest, 'json');
+        return $this->client->postAsync($createOrderRequest->getPath(),
             [
                 'body' => $body,
                 'headers' => $this->getHeaders($createOrderRequest->getMethod(), $createOrderRequest->getPath(), $body)

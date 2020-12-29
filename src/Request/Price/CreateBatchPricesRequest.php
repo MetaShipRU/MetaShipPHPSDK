@@ -9,7 +9,7 @@ use JMS\Serializer\Annotation as Serializer;
 
 /**
  * Class CreateBatchPricesRequest
- * @package MetaShipRU\MetaShipPHPSDK\Request\Order
+ * @package MetaShipRU\MetaShipPHPSDK\Request\Price
  */
 class CreateBatchPricesRequest
 {

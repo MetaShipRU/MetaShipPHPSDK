@@ -47,9 +47,4 @@ final class PriceCheckRequest implements IRequest
     {
         return $this->data;
     }
-
-    public function addDataItem(): void
-    {
-
-    }
 }

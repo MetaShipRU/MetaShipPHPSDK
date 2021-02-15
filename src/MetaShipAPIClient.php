@@ -30,6 +30,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Partner\PartnerDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceDataRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceCheckRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Price\CreateBatchPricesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Product\ProductDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
@@ -258,6 +259,22 @@ class MetaShipAPIClient
                 'headers' => $this->getHeaders(
                     $createBatchPricesRequest->getMethod(),
                     $createBatchPricesRequest->getPath(),
+                    $body
+                )
+            ]
+        );
+    }
+
+    public function checkPricesByExternalIds(PriceCheckRequest $priceCheckRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($priceCheckRequest, 'json');
+        return $this->client->post(
+            $priceCheckRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders(
+                    $priceCheckRequest->getMethod(),
+                    $priceCheckRequest->getPath(),
                     $body
                 )
             ]

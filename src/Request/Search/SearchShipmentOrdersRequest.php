@@ -17,6 +17,9 @@ class SearchShipmentOrdersRequest
     const METHOD = 'GET';
     const PATH = '/v1/search/shipment/orders';
 
+    public const TYPE_FAILOVER = 'failover';
+    public const DEFAULT_LIMIT = 10;
+
     /**
      * @Serializer\Type("string")
      *
@@ -29,5 +32,33 @@ class SearchShipmentOrdersRequest
      *
      * @var string|null
      */
-    public $status;
+    public $status = null;
+
+    /**
+     * @Serializer\Type("string")
+     *
+     * @var string|null
+     */
+    public $type = null;
+
+    /**
+     * @Serializer\Type("array")
+     *
+     * @var array
+     */
+    public $statusesIn = [];
+
+    /**
+     * @Serializer\Type("array")
+     *
+     * @var array
+     */
+    public $statusesNotIn = [];
+
+    /**
+     * @Serializer\Type("integer")
+     *
+     * @var int|null
+     */
+    public $limit = null;
 }

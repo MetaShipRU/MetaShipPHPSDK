@@ -4,6 +4,7 @@ namespace MetaShipRU\MetaShipPHPSDK;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Promise\PromiseInterface;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use MetaShipRU\MetaShipPHPSDK\Request\City\GetCitiesRequest;
@@ -11,6 +12,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\Delivery\GetDeliveriesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetAcceptanceRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Documents\GetLabelRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Intake\CreateIntakeRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\IRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Offer\OfferAllRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Offer\OfferRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Order\CancelBatchOrdersRequest;
@@ -28,6 +30,8 @@ use MetaShipRU\MetaShipPHPSDK\Request\Partner\PartnerDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceDataRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceCheckRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Price\CreateBatchPricesRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Product\GetProductRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Product\ProductDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
@@ -43,6 +47,9 @@ use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Shipment\ShipmentPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderByExternalIdPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderDataRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderGetByExternalIdPatternRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderGetByExternalIdRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderOrderInStatusRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\ShipmentOrder\ShipmentOrderPatchRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesInfoRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Status\GetStatusesRequest;
@@ -103,6 +110,21 @@ class MetaShipAPIClient
             ->build();
     }
 
+    public function patch(IRequest $request): ResponseInterface
+    {
+        $body = $this->serializer->serialize($request, 'json');
+
+        $headers = $this->getHeaders($request->getMethod(), $request->getPath(), $body);
+
+        return $this->client->patch(
+            $request->getPath(),
+            [
+                'body' => $body,
+                'headers' => $headers
+            ]
+        );
+    }
+
     public function getOffers(OfferRequest $offerRequest): ResponseInterface
     {
         $params = $this->serializer->toArray($offerRequest);
@@ -121,6 +143,16 @@ class MetaShipAPIClient
     {
         $body = $this->serializer->serialize($createOrderRequest, 'json');
         return $this->client->post($createOrderRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders($createOrderRequest->getMethod(), $createOrderRequest->getPath(), $body)
+            ]);
+    }
+
+    public function createOrderAsync(CreateOrderRequest $createOrderRequest): PromiseInterface
+    {
+        $body = $this->serializer->serialize($createOrderRequest, 'json');
+        return $this->client->postAsync($createOrderRequest->getPath(),
             [
                 'body' => $body,
                 'headers' => $this->getHeaders($createOrderRequest->getMethod(), $createOrderRequest->getPath(), $body)
@@ -231,6 +263,38 @@ class MetaShipAPIClient
         ]);
     }
 
+    public function createBatchPrices(CreateBatchPricesRequest $createBatchPricesRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($createBatchPricesRequest, 'json');
+        return $this->client->post(
+            $createBatchPricesRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders(
+                    $createBatchPricesRequest->getMethod(),
+                    $createBatchPricesRequest->getPath(),
+                    $body
+                )
+            ]
+        );
+    }
+
+    public function checkPricesByExternalIds(PriceCheckRequest $priceCheckRequest): ResponseInterface
+    {
+        $body = $this->serializer->serialize($priceCheckRequest, 'json');
+        return $this->client->post(
+            $priceCheckRequest->getPath(),
+            [
+                'body' => $body,
+                'headers' => $this->getHeaders(
+                    $priceCheckRequest->getMethod(),
+                    $priceCheckRequest->getPath(),
+                    $body
+                )
+            ]
+        );
+    }
+
     public function createShipment(ShipmentDataRequest $request): ResponseInterface
     {
         $body = $this->serializer->serialize($request, self::FORMAT);
@@ -244,6 +308,32 @@ class MetaShipAPIClient
         );
     }
 
+    public function getShipmentOrderByExternalIdPattern(ShipmentOrderGetByExternalIdPatternRequest $request): ResponseInterface
+    {
+        return
+            $this->client->request(
+                $request->getMethod(),
+                $request->getPath(),
+                [
+                    'headers' => $this->getHeaders($request->getMethod(), $request->getPath()),
+                ]
+            )
+        ;
+    }
+
+    public function getShipmentOrderInStatus(ShipmentOrderOrderInStatusRequest $request): ResponseInterface
+    {
+        return
+            $this->client->request(
+                $request->getMethod(),
+                $request->getPath(),
+                [
+                    'headers' => $this->getHeaders($request->getMethod(), $request->getPath()),
+                ]
+            )
+        ;
+    }
+
     public function createShipmentOrder(ShipmentOrderDataRequest $request): ResponseInterface
     {
         $body = $this->serializer->serialize($request, self::FORMAT);
@@ -255,6 +345,21 @@ class MetaShipAPIClient
                 'headers' => $this->getHeaders($request->getMethod(), $request->getPath(), $body),
             ]
         );
+    }
+
+    public function getShipmentOrderByExternalId(ShipmentOrderGetByExternalIdRequest $request): ResponseInterface
+    {
+        $path = sprintf('%s/%s', $request->getPath(), $request->id);
+
+        return
+            $this->client->request(
+                $request->getMethod(),
+                $path,
+                [
+                    'headers' => $this->getHeaders($request->getMethod(), $path),
+                ]
+            )
+        ;
     }
 
     public function getAcceptance(GetAcceptanceRequest $getAcceptanceRequest): ResponseInterface

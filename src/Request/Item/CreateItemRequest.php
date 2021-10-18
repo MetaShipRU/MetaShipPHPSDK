@@ -3,6 +3,7 @@
 namespace MetaShipRU\MetaShipPHPSDK\Request\Item;
 
 use JMS\Serializer\Annotation as Serializer;
+use MetaShipRU\MetaShipPHPSDK\DTO\Item\Supplier;
 
 /**
  * Class CreateItemRequest
@@ -73,4 +74,11 @@ class CreateItemRequest
      * @var string|null
      */
     public $marking;
+
+    /**
+     * @var Supplier|null
+     *
+     * @Serializer\Type("MetaShipRU\MetaShipPHPSDK\DTO\Item\Supplier")
+     */
+    public $supplier;
 }

@@ -13,6 +13,7 @@ final class ShipmentOrder
     public const STATUS__SENDING_CONFIRMED = 'sending_confirmed';
     public const STATUS__SENT = 'sent';
     public const STATUS__CONFIRM_CONSISTENCY = 'confirm_consistency';
+    public const STATUS__CONFIRM_CONSISTENCY_FINISHED = 'confirm_consistency_finished';
 
     public const STATUS_FIELD = 'status';
 

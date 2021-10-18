@@ -38,6 +38,14 @@ final class ShipmentOrderDataRequest implements IRequest
     private $orderId;
 
     /**
+     * @Serializer\SerializedName("type")
+     * @Serializer\Type("string")
+     *
+     * @var string|null
+     */
+    private $type;
+
+    /**
      * @Serializer\Type("array")
      *
      * @var array
@@ -62,5 +70,10 @@ final class ShipmentOrderDataRequest implements IRequest
     public function getData(): array
     {
         return $this->data;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
     }
 }

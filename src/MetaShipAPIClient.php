@@ -32,6 +32,7 @@ use MetaShipRU\MetaShipPHPSDK\Request\PickupPoint\GetPickupPointsRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Price\PriceCheckRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Price\CreateBatchPricesRequest;
+use MetaShipRU\MetaShipPHPSDK\Request\Product\GetProductRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Product\ProductDataRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersRequest;
 use MetaShipRU\MetaShipPHPSDK\Request\Search\SearchOrdersStatusHistoryRequest;
@@ -217,6 +218,19 @@ class MetaShipAPIClient
                     $createParcelRequest->getPath(),
                     $body)
             ]);
+    }
+
+    public function getProduct(GetProductRequest $request): ResponseInterface
+    {
+        $path = $request->getPath() . '/' . $request->getShop() . '/' . $request->getProductId();
+
+        return $this->client->request(
+            $request->getMethod(),
+            $path,
+            [
+                'headers' => $this->getHeaders($request->getMethod(), $path),
+            ]
+        );
     }
 
     public function createProduct(ProductDataRequest $request): ResponseInterface
